@@ -6,16 +6,17 @@
     "build": "vite build",
     "start": "vite preview"
   },
+  "dependencies": {
+    "alpinejs": "^3.3.4",
+    "htm": "^3.1.0",
+    "twind": "^0.16.16",
+    "vhtml": "^2.2.0"
+  },
   "devDependencies": {
     "autoprefixer": "^10.3.4",
     "postcss": "^8.3.6",
     "prettier": "^2.4.1",
     "tailwindcss": "^2.2.15",
     "vite": "^2.5.4"
-  },
-  "dependencies": {
-    "alpinejs": "^3.3.4",
-    "htm": "^3.1.0",
-    "vhtml": "^2.2.0"
   }
 }

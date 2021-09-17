@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
 .app {
-  @apply bg-gray-100 border-2 m-48 p-8 rounded-lg border-gray-600;
+  @apply bg-gray-100 text-center border-2 m-48 mt-16 p-8 rounded-lg border-gray-600;
 }
