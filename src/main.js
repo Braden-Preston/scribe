@@ -30,7 +30,7 @@ const App = () => {
   })
 
   return html`
-    <div
+    <div x-cloak x-data="{ count: 0, init() { this.count = 5 } }"
       class="bg-gray-100 text-center border-2 m-48 mt-16 p-8 rounded-lg border-gray-600"
     >
       <h1
@@ -40,6 +40,9 @@ const App = () => {
       >
         Hello Vite!
       </h1>
+      <button @click="count--">Dec</button>
+      <button @click="count++">Inc</button>
+      <div x-text="count" />
       <a href="https://vitejs.dev/guide/features.html" target="_blank">
         Documentation
       </a>
