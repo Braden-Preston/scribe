@@ -1,20 +1,3 @@
-import './theme'
-
-import { tw, css } from 'twind/css'
-
-import htm from 'htm'
-import h from 'vhtml'
-
-import Alpine from 'alpinejs'
-
-window.Alpine = Alpine
-
-Alpine.start()
-
-// Make Templates
-
-const html = htm.bind(h)
-
 const Header = ({ name }) => html`<h1>${name} List</h1>`
 
 const Footer = props => html`<footer ...${props} />`
@@ -30,7 +13,9 @@ const App = () => {
   })
 
   return html`
-    <div x-cloak x-data="{ count: 0, init() { this.count = 5 } }"
+    <div
+      x-cloak
+      x-data="{ count: 0, init() { this.count = 5 } }"
       class="bg-gray-100 text-center border-2 m-48 mt-16 p-8 rounded-lg border-gray-600"
     >
       <h1
@@ -56,4 +41,4 @@ const App = () => {
   `
 }
 
-document.querySelector('#app').innerHTML = html`<${App} />`
+export default App
