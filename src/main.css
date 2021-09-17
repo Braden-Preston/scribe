@@ -1,7 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.app {
-  @apply bg-gray-100 text-center border-2 m-48 mt-16 p-8 rounded-lg border-gray-600;
-}
