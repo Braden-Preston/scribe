@@ -1,12 +1,15 @@
 import 'twind/shim'
 import { setup } from 'twind'
 import { tw, css, apply } from 'twind/css'
-import { blueGray, lightBlue, green, orange, rose, violet } from 'twind/colors'
+import { blueGray, lightBlue, green, orange, rose, violet, white, black } from 'twind/colors'
 
 // Configure Styles
-setup({
+
+const config = {
   theme: {
     colors: {
+      black: black,
+      white: white,
       gray: blueGray,
       blue: lightBlue,
       purple: violet,
@@ -15,7 +18,9 @@ setup({
       red: rose
     }
   }
-})
+}
+
+setup(config)
 
 window.tw = tw
 window.css = css
