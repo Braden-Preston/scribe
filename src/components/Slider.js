@@ -18,7 +18,7 @@ export default () => {
         shadow-${color} 
         hover:ring-${color}-300 
         hover:ring-4 
-        transition-all 
+        !transition-all 
         !outline-none
       `
     }

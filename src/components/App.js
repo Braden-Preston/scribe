@@ -23,7 +23,7 @@ const App = () => {
         </div>
         <!-- Footer -->
         <div class="my-8 text-center">
-          <span class="text-gray-200">created by </span>
+          <span class="text-gray-200">Designed by </span>
           <span class="text-blue-400">@braden_preston</span>
           <${Icon} ...${{ color: 'green', icon: Color }} />
         </div>
