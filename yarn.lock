@@ -49,6 +49,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@ryangjchandler/fern@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ryangjchandler/fern/-/fern-0.1.0.tgz#5db80bec87df15173da7a331b1d729d63e6f4a0f"
+  integrity sha512-fZHkPOpISyhWgwyCFeswlyAwPmoi8Ro44cn1ViagyHNy5Y6E0GAj+fpK9047p2mvep0jpawl7ilkW/l4WY09AA==
+  dependencies:
+    alpinejs "^3.0"
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -84,6 +91,13 @@ acorn@^7.0.0:
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
+
+alpinejs@^3.0:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.3.5.tgz#4e501bbe2832a14755e8221de809f82a7f2149e2"
+  integrity sha512-leW13QOKIDkMqSSJCBnIa5gnIALCjhBOW1TF9EORYd0XPUxGAAPzF22dejWmnjLz4J1h/CS8kzxTor7lKOalSw==
+  dependencies:
+    "@vue/reactivity" "~3.1.1"
 
 alpinejs@^3.3.4:
   version "3.3.4"

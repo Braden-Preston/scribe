@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@alpinejs/persist": "^3.3.5",
+    "@ryangjchandler/fern": "^0.1.0",
     "alpinejs": "^3.3.4",
     "htm": "^3.1.0",
     "twind": "^0.16.16",

@@ -1,11 +1,13 @@
-export default function () {
-  return {
-    darkMode: this.$persist(false),
-    init() {
-      console.log('theme initialized!')
-    },
-    toggle() {
-      this.darkMode = !this.darkMode
-    }
+export default {
+  dark: false,
+  color: 'blue',
+  init() {
+    console.log('theme initialized!')
+  },
+  toggle() {
+    this.dark = !this.dark
+  },
+  switch(color) {
+    this.color = color
   }
 }

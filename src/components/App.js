@@ -13,10 +13,8 @@ const App = () => {
 
   let active = true
 
-  console.log(Alpine.data('theme'))
-
   return html`
-    <div class="bg-gray-500 h-screen w-screen relative text-gray-600">
+    <div class="bg-gray-500 h-screen w-screen relative text-gray-500">
       <!-- <${Background} /> -->
       <div class="relative flex flex-col h-full">
         <button class="bg-blue-300 h-8 w-8">Clr</button>
