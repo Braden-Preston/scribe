@@ -1,6 +1,6 @@
 // Import vendors and globals
-import './global/twind'
 import './global/htm'
+import './global/twind'
 import './global/alpine'
 
 // Import the root component
