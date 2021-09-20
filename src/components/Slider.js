@@ -10,6 +10,7 @@ export default () => {
       let color = this.$store.theme.color
 
       return tw`
+        py-1
         text-white
         rounded-lg w-32 
         bg-gradient-to-r 
