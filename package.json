@@ -5,6 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
+    "analyze": "vite build -- --analyze",
     "preview": "yarn build && yarn start"
   },
   "dependencies": {
@@ -17,7 +18,9 @@
   },
   "devDependencies": {
     "prettier": "^2.4.1",
+    "rollup-plugin-visualizer": "^5.5.2",
     "tailwindcss": "^2.2.15",
-    "vite": "^2.5.4"
+    "vite": "^2.5.4",
+    "vite-plugin-compression": "^0.3.5"
   }
 }
