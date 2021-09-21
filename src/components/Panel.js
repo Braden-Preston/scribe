@@ -10,7 +10,7 @@ const Panel = props => {
 
   let data = () => ({
     mode: 'edit',
-    toggle(mode) {
+    setMode(mode) {
       this.mode = mode
     }
   })

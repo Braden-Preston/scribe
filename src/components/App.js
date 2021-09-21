@@ -14,18 +14,19 @@ const App = () => {
   let active = true
 
   return html`
-    <div class="bg-gray-500 h-screen w-screen relative text-gray-500 select-none">
+    <div
+      class="bg-gray-500 h-screen w-screen relative text-gray-500 select-none"
+    >
       <!-- <${Background} /> -->
-      <div class="relative flex flex-col h-full">
-        <button class="bg-blue-300 h-8 w-8">Clr</button>
-        <div class="justify-center flex flex-1 pt-20">
+      <div class="relative flex flex-col h-full gap-2">
+        <div class="h-20">Header</div>
+        <div class="justify-center flex flex-1">
           <${Panel} />
         </div>
         <!-- Footer -->
-        <div class="my-8 text-center">
+        <div class="mb-6 text-center">
           <span class="text-gray-200">Designed by </span>
           <span class="text-blue-400">@braden_preston</span>
-          <${Icon} ...${{ color: 'green', icon: Color }} />
         </div>
       </div>
     </div>
