@@ -1,8 +1,7 @@
 export default () => {
   let styles = {
-    root: `
-
-    `
+    root: 'flex-1 flex justify-center',
+    switcher: 'bg-gray-200 rounded-lg flex gap-0 shadow-inner'
   }
 
   let data = () => ({
@@ -18,7 +17,7 @@ export default () => {
         to-${color}-300 
         shadow-${color} 
         hover:ring-${color}-300 
-        hover:ring-4 
+        hover:ringE-4 
         !transition-all 
         !outline-none
       `
@@ -26,10 +25,14 @@ export default () => {
   })
 
   return html`
-    <div x-data=${data} class="flex-1 flex justify-center">
-      <div class="bg-gray-200 rounded-lg flex gap-0 shadow-inner">
-        <button :class="active">Tweak</button>
-        <button class="rounded-lg w-32 !outline-none">Export</button>
+    <div x-data=${data} class=${styles.root}>
+      <div class=${styles.switcher}>
+        <button @click="toggle('edit')" :class="active" x-text="mode">
+          Tweak
+        </button>
+        <button @click="toggle('export')" class="rounded-lg w-32 !outline-none">
+          Export
+        </button>
       </div>
     </div>
   `

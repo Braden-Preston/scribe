@@ -12,7 +12,7 @@ export default props => {
   const styles = {
     root: `
       ${sizes[size]}
-      ${color != 'gray' && `text-${color}-400`}
+      ${`text-${color}-400`}
       ${shrink && 'group-hover:scale-90'}
     `
   }

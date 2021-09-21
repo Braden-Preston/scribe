@@ -1,21 +1,29 @@
 import PanelBar from './PanelBar'
 
 const Panel = props => {
-  const styles = {
+  let styles = {
     root: `bg-gray-100 rounded-2xl rounded-b-none flex flex-col flex-1 w-full max-w-5xl overflow-hidden gap-3`
   }
 
+  let data = () => ({
+    mode: 'edit',
+    toggle(mode) { 
+      this.mode = mode
+    }
+  })
+
   return html`
     <!-- Container -->
-    <div class=${styles.root}>
+    <div x-data=${data} x-props=${{ test: true }} class=${styles.root}>
       <!-- Header -->
       <${PanelBar} />
+
       <!-- Toolbar -->
       <div class="flex px-14 gap-3">
-        <div class="bg-white h-8 rounded-lg w-1/6" />
-        <div class="bg-white h-8 rounded-lg w-1/4" />
-        <div class="bg-white h-8 rounded-lg w-1/3" />
-        <div class="bg-white h-8 rounded-lg w-1/12" />
+        <div class="bg-gray-50 h-8 rounded-lg w-1/6" />
+        <div class="bg-gray-50 h-8 rounded-lg w-1/4" />
+        <div class="bg-gray-50 h-8 rounded-lg w-1/3" />
+        <div class="bg-gray-50 h-8 rounded-lg w-1/12" />
       </div>
 
       <!-- Buttons -->
@@ -31,6 +39,7 @@ const Panel = props => {
         </div>
         <p x-text="$store.theme.color" />
       </div>
+
       <!-- Editor -->
       <div class="flex flex-1 justify-end">
         <div class="h-1/3 w-2 rounded-full bg-gray-300 mr-3" />
