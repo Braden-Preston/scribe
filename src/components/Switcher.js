@@ -1,6 +1,6 @@
 let buttons = [
   {
-    mode: 'edit',
+    mode: 'editor',
     label: 'Tweak'
   },
   {
