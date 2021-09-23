@@ -20,7 +20,7 @@ const App = () => {
               TPOT Scribe
             </div>
             <div class="flex-1 flex items-end justify-end pr-0.5">
-              <${Icon} ...${{ size: 'md', classes: 'text-gray-200', icon: Color }} />
+              <${Icon} ...${{ size: 'md', classes: 'text-blue-400', icon: Color }} />
             </div>
           </div>
         </div>

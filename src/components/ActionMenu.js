@@ -6,7 +6,7 @@ import Menu from '../icons/Menu'
 
 export default () => {
   let styles = {
-    buttonText: `flex flex-col justify-center px-2 text-center font-medium group-hover:scale-95`,
+    buttonText: `flex flex-col justify-center px-2 text-center font-medium group-hover:scale-95 hidden sm:block`,
     actionBtn: `group cursor-pointer pr-1 inline-flex items-center hover:bg-gray-200 rounded-lg transition-colors absolute z-50`,
     menu: `z-20 top-11 absolute w-72 shadow-md rounded-lg backdrop-filter backdrop-blur-sm bg-white`
   }
