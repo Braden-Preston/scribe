@@ -12,7 +12,7 @@ export default () => {
   }
 
   return html`
-    <div x-data="{ open: false }">
+    <div x-data="{ open: $persist(false) }">
       <!-- Button -->
       <div class=${styles.actionBtn} @click="open = !open">
         <${IconButton} ...${{ icon: Menu }} />

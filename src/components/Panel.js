@@ -5,8 +5,8 @@ import Editor from './Editor'
 
 const Panel = props => {
   let styles = {
-    root: `flex flex-col flex-1 max-w-5xl`,
-    container: `bg-gray-100 rounded-lg !rounded-b-none mt-8 flex flex-col flex-1 overflow-hidden gap-3`
+    root: `flex flex-col flex-1 max-w-5xl my-0`,
+    container: `bg-gray-100 rounded-lg !rounded-b-none flex flex-col flex-1 overflow-hidden gap-3`
   }
 
   let data = function () {

@@ -7,7 +7,13 @@ const sizes = {
 }
 
 export default props => {
-  let { shrink = false, color = 'gray', size = 'md', icon = Code } = props
+  let {
+    shrink = false,
+    color = 'gray',
+    size = 'md',
+    classes = '',
+    icon = Code
+  } = props
 
   const styles = {
     root: `
@@ -18,7 +24,7 @@ export default props => {
   }
 
   return html`
-    <div class=${styles.root}>
+    <div class=${tw(styles.root, classes)}>
       <${icon} />
     </div>
   `

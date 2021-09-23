@@ -12,7 +12,7 @@ export default () => {
     <div class="flex-1 flex-col flex mb-4">
       <div class="font-medium text-center my-1">HTML Output</div>
       <div
-        class="bg-gray-600 mx-4 mb-4 p-4 shadow-inner flex-1 rounded-lg text-green-400"
+        class="bg-gray-200 mx-3 mb-4 p-4 shadow-inner flex-1 rounded-lg text-green-500"
       >
         <code>${sampleText}</code>
       </div>
