@@ -1,6 +1,23 @@
+import Quill from '../global/quill'
+
+Alpine.data('editor', function () {
+  return {
+    init() {
+      let quill = new Quill(this.$refs.editor, {
+        theme: 'snow',
+        modules: {
+          toolbar: true
+        }
+      })
+
+      console.log('quill', quill)
+    }
+  }
+})
+
 export default props => {
   return html`
-    <div ...${props} class="flex-1 mb-2">
+    <div ...${props} x-data="editor" class="flex-1 flex flex-col mb-2">
       <!-- Toolbar -->
       <div class="flex px-14 gap-3">
         <div class="bg-gray-50 h-8 rounded-lg w-1/6" />
@@ -21,13 +38,23 @@ export default props => {
           <button @click="$store.theme.setColor('red')">Red</button>
           <button @click="$store.theme.setColor('purple')">Purple</button>
         </div>
-          <p x-text="$store.theme.dark" />
+        <p x-text="$store.theme.dark" />
       </div>
 
       <!-- Editor -->
-      <div class="flex flex-1 justify-end">
-        <div class="h-1/3 w-2 rounded-full bg-gray-300 mr-3" />
-      </div>
+      <!-- <div class="flex flex-1 flex-col w-full border-4 border-red-400 flex-1 bg-blue-200 absolute px-4"> -->
+        <div class="">
+          <div class="" x-ref="editor">
+            <p>Hello World!</p>
+            <p>Some initial <strong>bold</strong> text</p>
+            <p><br /></p>
+          </div>
+        </div>
+      <!-- </div> -->
+
+      <!-- <div class="flex flex-1 justify-end bg-green-200">
+        test
+      </div> -->
     </div>
   `
 }
