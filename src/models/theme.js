@@ -7,7 +7,7 @@ export default {
   toggle() {
     this.dark = !this.dark
   },
-  switch(color) {
+  setColor(color) {
     this.color = color
   }
 }

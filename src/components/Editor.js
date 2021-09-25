@@ -12,15 +12,15 @@ export default props => {
       <!-- Buttons -->
       <div x-init class="flex flex-col text-center">
         <button @click="$store.theme.toggle()">Toggle Dark Mode</button>
-        <p x-text="$store.theme.dark" />
         <div class="flex gap-4 justify-center">
-          <button @click="$store.theme.switch('blue')">Blue</button>
-          <button @click="$store.theme.switch('green')">Green</button>
-          <button @click="$store.theme.switch('orange')">Orange</button>
-          <button @click="$store.theme.switch('red')">Red</button>
-          <button @click="$store.theme.switch('purple')">Purple</button>
+          <button @click="$store.theme.setColor('blue')">Blue</button>
+          <button @click="$store.theme.setColor('green')">Green</button>
+          <button @click="$store.theme.setColor('teal')">Teal</button>
+          <button @click="$store.theme.setColor('orange')">Orange</button>
+          <button @click="$store.theme.setColor('pink')">Pink</button>
+          <button @click="$store.theme.setColor('red')">Red</button>
+          <button @click="$store.theme.setColor('purple')">Purple</button>
         </div>
-        <p x-text="$store.theme.color" />
       </div>
 
       <!-- Editor -->

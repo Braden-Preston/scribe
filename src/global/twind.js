@@ -1,10 +1,10 @@
 import 'twind/shim'
 import { setup } from 'twind'
 import { tw, css, apply } from 'twind/css'
-import { blueGray, lightBlue, green, orange, rose, violet, white, black } from 'twind/colors'
+import { blueGray, lightBlue, green, orange, rose, violet, teal, pink } from 'twind/colors'
 
 // Configure Styles
-const config = {
+export const config = {
   theme: {
     extend: {
       colors: {
@@ -13,6 +13,8 @@ const config = {
         purple: violet, // amethyst
         orange: orange, // amber
         green: green, // emerald
+        teal: teal, // zircon
+        pink: pink, // rose
         red: rose // ruby
       },
       boxShadow: {
@@ -21,6 +23,8 @@ const config = {
         green: '0 4px 6px -1px rgba(74, 222, 128, 0.20), 0 1px 6px -1px rgba(74, 222, 128, 0.50)',
         orange: '0 4px 6px -1px rgba(251, 146, 60, 0.20), 0 1px 6px -1px rgba(251, 146, 60, 0.50)',
         purple: '0 4px 6px -1px rgba(167, 139, 250, 0.20), 0 1px 6px -1px rgba(167, 139, 250, 0.50)',
+        pink: '0 4px 6px -1px rgba(244, 114, 182, 0.20), 0 1px 6px -1px rgba(244, 114, 182, 0.50)',
+        teal: '0 4px 6px -1px rgba(45, 212, 191, 0.20), 0 1px 6px -1px rgba(45, 212, 191, 0.50)',
       },
     }
   }
