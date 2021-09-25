@@ -1,3 +1,6 @@
+// import global styles
+import './index.css'
+
 // Import vendors and globals
 import './global/htm'
 import './global/twind'

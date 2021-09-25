@@ -1,4 +1,4 @@
-import Code from '../icons/Code'
+import Code from './icons/Code'
 
 let sizes = {
   sm: 'h-5 w-5',

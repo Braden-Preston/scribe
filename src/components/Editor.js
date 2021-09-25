@@ -1,16 +1,29 @@
 import Quill from '../global/quill'
 
 Alpine.data('editor', function () {
-  return {
-    init() {
-      let quill = new Quill(this.$refs.editor, {
-        theme: 'snow',
-        modules: {
-          toolbar: true
-        }
-      })
+  // import Quill from '../global/quill'
 
-      console.log('quill', quill)
+  return {
+    async init() {
+      console.log('before')
+
+      // let rest = ms => {
+      //   return new Promise(res => {
+      //     setTimeout(() => res('cat'), ms)
+      //   })
+      // }
+      // let Quill = await import('../global/quill')
+
+      console.log('after', Quill)
+
+      // let quill = new Quill(this.$refs.editor, {
+      //   theme: 'snow',
+      //   modules: {
+      //     toolbar: true
+      //   }
+      // })
+
+      // console.log('quill', quill)
     }
   }
 })
@@ -43,13 +56,13 @@ export default props => {
 
       <!-- Editor -->
       <!-- <div class="flex flex-1 flex-col w-full border-4 border-red-400 flex-1 bg-blue-200 absolute px-4"> -->
-        <div class="">
-          <div class="" x-ref="editor">
-            <p>Hello World!</p>
-            <p>Some initial <strong>bold</strong> text</p>
-            <p><br /></p>
-          </div>
+      <div class="">
+        <div class="" x-ref="editor">
+          <p>Hello World!</p>
+          <p>Some initial <strong>bold</strong> text</p>
+          <p><br /></p>
         </div>
+      </div>
       <!-- </div> -->
 
       <!-- <div class="flex flex-1 justify-end bg-green-200">

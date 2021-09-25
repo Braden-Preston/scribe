@@ -6,7 +6,7 @@
     "build": "vite build",
     "start": "vite preview",
     "analyze": "vite build -- --analyze",
-    "preview": "yarn build && yarn start"
+    "preview": "yarn build && yarn start -- --open"
   },
   "dependencies": {
     "@alpinejs/persist": "^3.3.5",

@@ -1,5 +1,5 @@
 import Icon from './Icon'
-import Copy from '../icons/Copy'
+import Copy from './icons/Copy'
 
 // Setup the syntax highlighter'
 import hljs from 'highlight.js/lib/core'

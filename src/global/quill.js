@@ -38,4 +38,6 @@
 import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 
+export const cat = 5
+
 export default Quill
