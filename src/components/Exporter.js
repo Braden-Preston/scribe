@@ -10,12 +10,10 @@ export default () => {
   })
 
   return html`
-    <div x-data=${data} class="flex-1 flex-col flex mb-4">
+    <div x-data=${data} class="flex flex-1 flex-col mb-4">
       <div class="font-medium text-center my-1">HTML Output</div>
-      <pre
-        class="bg-gray-700 mx-3 shadow-inner rounded-lg overflow-hidden relative"
-      >
-        <code class="language-html" style="background: transparent !important;" x-text="code" />
+      <pre class="bg-gray-700 mx-3 mb-4 p-4 flex-1 overflow-auto">
+          <code style='background: transparent;' x-text="code"></code>
       </pre>
       <div class="justify-center flex">
         <button

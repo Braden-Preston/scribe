@@ -31,7 +31,7 @@ const Panel = props => {
         </div>
 
         <!-- Exporter -->
-        <div x-show="mode == 'export'" class="flex-1 flex">
+        <div x-show="mode == 'export'" class="flex-1 flex overflow-hidden">
           <${Exporter} />
         </div>
       </div>
