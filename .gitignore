@@ -1,7 +1,18 @@
 .DS_Store
 *.local
-
-node_modules
-build
-
 .env
+
+# Yarn PnP
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# NPM fallback
+node_modules
+
+# Client App
+build

@@ -3,7 +3,6 @@ import compression from 'vite-plugin-compression'
 import visualizer from 'rollup-plugin-visualizer'
 import path from 'path'
 
-
 export default defineConfig({
   root: 'src',
   plugins: [
