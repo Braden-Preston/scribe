@@ -25,14 +25,10 @@ export default () => html`
       <${PanelBar} />
 
       <!-- Editor -->
-      <div x-show="mode == 'editor'">
-        <${Editor} />
-      </div>
+      <${Editor} ...${{ 'x-show': "mode == 'editor'" }} />
 
       <!-- Exporter -->
-      <div x-show="mode == 'export'" class="flex-1 flex overflow-hidden">
-        <${Exporter} />
-      </div>
+      <${Exporter} ...${{ 'x-show': "mode == 'export'" }} />
     </div>
 
     <!-- Ribbon -->

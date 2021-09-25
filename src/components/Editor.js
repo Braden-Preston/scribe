@@ -1,6 +1,6 @@
 export default props => {
   return html`
-    <div class="flex-1 flex flex-col mb-2">
+    <div ...${props} class="flex-1 mb-2">
       <!-- Toolbar -->
       <div class="flex px-14 gap-3">
         <div class="bg-gray-50 h-8 rounded-lg w-1/6" />
