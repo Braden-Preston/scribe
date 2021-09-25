@@ -1,7 +1,7 @@
 import { config } from '../global/twind'
 
 Alpine.data('logo', () => ({
-  render() {
+  get render() {
     // Get the current store color
     let color = this.$store.theme.color
     let colors = config.theme.extend.colors
@@ -206,4 +206,4 @@ Alpine.data('logo', () => ({
 }))
 
 export default () =>
-  html` <div x-data="logo" class="h-12 w-12" x-html="render()"></div> `
+  html` <div x-data="logo" class="h-12 w-12" x-html="render"></div> `

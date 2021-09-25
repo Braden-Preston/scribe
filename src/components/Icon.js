@@ -1,6 +1,6 @@
 import Code from '../icons/Code'
 
-const sizes = {
+let sizes = {
   sm: 'h-5 w-5',
   md: 'h-6 w-6',
   lg: 'h-8 w-8'
@@ -15,10 +15,10 @@ export default props => {
     icon = Code
   } = props
 
-  const styles = {
+  let styles = {
     root: `
       ${sizes[size]}
-      ${`text-${color}-400`}
+      ${`text-${color}-500`}
       ${shrink && 'group-hover:scale-90'}
     `
   }

@@ -4,15 +4,21 @@ import IconButton from './IconButton'
 import Arrow from '../icons/Arrow'
 import Menu from '../icons/Menu'
 
-export default () => {
-  let styles = {
-    buttonText: `flex flex-col justify-center px-2 text-center font-medium group-hover:scale-95 hidden sm:block`,
-    actionBtn: `group cursor-pointer pr-1 inline-flex items-center hover:bg-gray-200 rounded-lg transition-colors absolute z-20`,
-    menu: `z-20 top-11 absolute w-72 shadow-md rounded-lg backdrop-filter backdrop-blur-sm bg-white z-50`
-  }
+let styles = {
+  buttonText: `flex flex-col justify-center px-2 text-center font-medium group-hover:scale-95 hidden sm:block`,
+  actionBtn: `group cursor-pointer pr-1 inline-flex items-center hover:bg-gray-200 rounded-lg transition-colors absolute z-20`,
+  menu: `z-20 top-11 absolute w-72 shadow-md rounded-lg backdrop-filter backdrop-blur-sm bg-white z-50`
+}
 
-  return html`
-    <div x-data="{ open: $persist(false) }">
+Alpine.data('actionMenu', function () {
+  return {
+    open: this.$persist(false)
+  }
+})
+
+export default () =>
+  html`
+    <div x-data="actionMenu">
       <!-- Button -->
       <div class=${styles.actionBtn} @click="open = !open">
         <${IconButton} ...${{ icon: Menu }} />
@@ -22,7 +28,7 @@ export default () => {
 
       <!-- Dropdown -->
       <${DropIn} ...${{ open: 'open' }}>
-        <div class=${styles.menu}>
+        <div class=${styles.menu} @click.away="open = false">
           <div class="text-center border-2 border-gray-300 rounded-lg m-2 py-8">
             New
           </div>
@@ -34,4 +40,3 @@ export default () => {
       <//>
     </div>
   `
-}

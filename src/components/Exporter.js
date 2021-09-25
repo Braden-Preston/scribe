@@ -15,21 +15,19 @@ Alpine.data('exporter', () => ({
   }
 }))
 
-export default () => {
-  return html`
-    <div x-data="exporter" class="flex flex-1 flex-col mb-4">
-      <div class="font-medium text-center my-1">HTML Output</div>
-      <pre class="bg-gray-700 mx-3 mb-4 p-4 flex-1 rounded-lg overflow-auto">
+export default () => html`
+  <div x-data="exporter" class="flex flex-1 flex-col mb-4 overflow-hidden">
+    <div class="font-medium text-center my-1">HTML Output</div>
+    <pre class="bg-gray-700 mx-3 mb-4 p-4 flex-1 rounded-lg overflow-hidden">
           <code class="language-html" style='background: transparent;' x-html="code" />
       </pre>
-      <div class="justify-center flex">
-        <button
-          class="flex items-center gap-2 h-8 py-1 px-4 rounded-lg text-center text-white bg-gradient-to-r from-blue-500 to-blue-300 shadow-blue cursor-pointer !outline-none"
-        >
-          Copy Text
-          <${Icon} ...${{ size: 'sm', classes: 'text-white', icon: Copy }} />
-        </button>
-      </div>
+    <div class="justify-center flex">
+      <button
+        class="flex items-center gap-2 h-8 py-1 px-4 rounded-lg text-center text-white bg-gradient-to-r from-blue-500 to-blue-300 shadow-blue cursor-pointer !outline-none"
+      >
+        Copy Text
+        <${Icon} ...${{ size: 'sm', classes: 'text-white', icon: Copy }} />
+      </button>
     </div>
-  `
-}
+  </div>
+`

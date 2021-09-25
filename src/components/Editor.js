@@ -21,6 +21,7 @@ export default props => {
           <button @click="$store.theme.setColor('red')">Red</button>
           <button @click="$store.theme.setColor('purple')">Purple</button>
         </div>
+          <p x-text="$store.theme.dark" />
       </div>
 
       <!-- Editor -->
