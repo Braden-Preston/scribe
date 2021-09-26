@@ -9,7 +9,7 @@ hljs.registerLanguage('html', lang)
 
 let styles = {
   root: `flex flex-1 flex-col mb-4 overflow-hidden`,
-  preview: `bg-gray-700 mx-3 mb-4 p-4 flex-1 rounded-lg overflow-hidden`,
+  preview: `bg-gray-700 mx-3 mb-4 p-4 flex-1 rounded-lg overflow-auto`,
   button: `flex items-center gap-2 h-8 py-1 px-4 rounded-lg text-center text-white bg-gradient-to-r from-blue-500 to-blue-300 shadow-blue cursor-pointer !outline-none`
 }
 

@@ -7,7 +7,8 @@ import Menu from './icons/Menu'
 let styles = {
   buttonText: `flex flex-col justify-center px-2 text-center font-medium group-hover:scale-95 hidden sm:block`,
   actionBtn: `group cursor-pointer pr-1 inline-flex items-center hover:bg-gray-200 rounded-lg transition-colors absolute z-20`,
-  menu: `z-20 top-11 absolute w-72 shadow-md rounded-lg backdrop-filter backdrop-blur-sm bg-white z-50`
+  menu: `z-20 top-11 absolute w-72 shadow-md rounded-lg backdrop-filter backdrop-blur-sm bg-white z-50`,
+  arrow: ''
 }
 
 Alpine.data('actionMenu', function () {
@@ -23,7 +24,7 @@ export default () =>
       <div class=${styles.actionBtn} @click="open = !open">
         <${IconButton} ...${{ icon: Menu }} />
         <span class=${styles.buttonText}>Actions</span>
-        <${Icon} ...${{ size: 'sm', icon: Arrow }} />
+        <${Icon} ...${{ size: 'sm', icon: Arrow, classes: styles.arrow }} />
       </div>
 
       <!-- Dropdown -->

@@ -6,7 +6,8 @@
     "build": "vite build",
     "start": "vite preview",
     "analyze": "vite build -- --analyze",
-    "preview": "yarn build && yarn start -- --open"
+    "preview": "yarn build && yarn start -- --open",
+    "clean": "rimraf build && yarn cache clean"
   },
   "dependencies": {
     "@alpinejs/persist": "^3.3.5",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
     "rollup-plugin-visualizer": "^5.5.2",
     "tailwindcss": "^2.2.15",
     "vite": "^2.5.4",

@@ -5,6 +5,7 @@ import path from 'path'
 
 export default defineConfig({
   root: 'src',
+  cacheDir: '../.yarn/cache/.vite',
   plugins: [
     // Compress assets
     compression({
@@ -26,6 +27,9 @@ export default defineConfig({
   ],
   server: {
     open: process.argv.includes('--open')
+  },
+  resolve: {
+    alias: []
   },
   build: {
     outDir: '../build',

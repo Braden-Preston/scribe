@@ -8,7 +8,7 @@ export default props => {
   let { color = 'gray', icon = null } = props
 
   return html`
-    <button class=${styles.root} aria-label="btn">
+    <button class=${styles.root} aria-label="icon">
       <${Icon} ...${{ color, icon, size: 'sm', shrink: true }} />
     </button>
   `

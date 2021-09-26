@@ -1,36 +1,72 @@
+import EditorToolbar from './EditorToolbar'
 import Quill from '../global/quill'
 
 Alpine.data('editor', function () {
-  // import Quill from '../global/quill'
-
   return {
     async init() {
-      console.log('before')
-
-      // let rest = ms => {
-      //   return new Promise(res => {
-      //     setTimeout(() => res('cat'), ms)
-      //   })
-      // }
-      // let Quill = await import('../global/quill')
-
-      console.log('after', Quill)
-
-      // let quill = new Quill(this.$refs.editor, {
-      //   theme: 'snow',
-      //   modules: {
-      //     toolbar: true
-      //   }
-      // })
-
-      // console.log('quill', quill)
+      let quill = new Quill(this.$refs.editor, {
+        theme: 'snow',
+        modules: {
+          toolbar: this.$refs.toolbar
+          // toolbar: [
+          //   [{ header: [1, 2, false] }],
+          //   ['bold', 'italic', 'underline', 'link'],
+          //   [
+          //     {
+          //       color: [
+          //         false,
+          //         '#660000',
+          //         '#990066',
+          //         '#FFC000',
+          //         '#0000FF',
+          //         '#336600',
+          //         '#E00000',
+          //         '#ED7D31',
+          //         '#0080FF',
+          //         '#6033F1'
+          //       ]
+          //     },
+          //     {
+          //       background: [false, '#FFF4A3', '#FFA3D5', '#A3D4FF', '#BDFFA3']
+          //     },
+          //     'blockquote'
+          //   ],
+          //   [{ align: 'center' }, { list: 'ordered' }, { list: 'bullet' }],
+          //   ['clean']
+          // ]
+        }
+      })
+    },
+    classes() {
+      return tw`bg-red-500`
     }
   }
 })
 
+const Ico = () => html`
+  <svg viewBox="0 0 18 18">
+    <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon>
+    <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon>
+  </svg>
+`
+
 export default props => {
   return html`
-    <div ...${props} x-data="editor" class="flex-1 flex flex-col mb-2">
+    <div ...${props} x-data="editor" class="flex flex-1 flex-col mb-2">
+      <!-- Container -->
+      <div id="wrapper" class="flex-1 overflow-hidden">
+        <!-- Toolbar -->
+        <${EditorToolbar} />
+
+        <!-- Edit Area -->
+        <div id="editor" class="classes" x-ref="editor">
+          <p>Hello World!</p>
+          <p>Some initial <strong>bold</strong> text</p>
+          <p><br /></p>
+          <!-- <div>Editor, Clipboard & Tooltip</div> -->
+        </div>
+      </div>
+
       <!-- Toolbar -->
       <div class="flex px-14 gap-3">
         <div class="bg-gray-50 h-8 rounded-lg w-1/6" />
@@ -53,21 +89,6 @@ export default props => {
         </div>
         <p x-text="$store.theme.dark" />
       </div>
-
-      <!-- Editor -->
-      <!-- <div class="flex flex-1 flex-col w-full border-4 border-red-400 flex-1 bg-blue-200 absolute px-4"> -->
-      <div class="">
-        <div class="" x-ref="editor">
-          <p>Hello World!</p>
-          <p>Some initial <strong>bold</strong> text</p>
-          <p><br /></p>
-        </div>
-      </div>
-      <!-- </div> -->
-
-      <!-- <div class="flex flex-1 justify-end bg-green-200">
-        test
-      </div> -->
     </div>
   `
 }

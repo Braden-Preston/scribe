@@ -4,12 +4,13 @@
 
 # Yarn PnP
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+!.yarn/cache
+.yarn/cache/.vite
 
 # NPM fallback
 node_modules
