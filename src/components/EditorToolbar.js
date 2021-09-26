@@ -10,16 +10,21 @@ let globalStyles = css`
   :global {
     // Containers
     .ql-toolbar {
-      @apply text-left sm:text-center justify-center;
+      @apply !bg-red-500 text-left sm:text-center justify-center;
     }
     .ql-formats {
-      @apply bg-gray-50 shadow-sm rounded-lg h-8 space-x-1 md:space-x-2 px-0.5 md:px-2 pt-[5px];
+      @apply bg-gray-50 shadow-sm rounded-lg space-x-2 space-y-1 px-2 py-1;
+      margin: 0px !important;
+      display: flex !important;
     }
     .ql-picker-options {
-      top: 32px !important;
+      top: 36px !important;
       border: 0px !important;
       border-radius: 8px !important;
       background: ${colors.gray[50]} !important;
+    }
+    .ql-header .ql-picker-options {
+      top: 40px !important;
     }
     .ql-color .ql-picker-options,
     .ql-background .ql-picker-options {
@@ -52,7 +57,6 @@ let globalStyles = css`
     }
     // Swatches
 
-
     // Buttons
     .ql-picker-item:hover {
       color: ${colors.gray[500]} !important;
@@ -76,7 +80,7 @@ let globalStyles = css`
 `
 
 let styles = {
-  root: `!border-0 space-y-1`
+  root: `!border-0 !p-0 !mx-4 space-y flex justify-center`
 }
 
 // prettier-ignore
@@ -90,7 +94,7 @@ let _hlites = ['#FFF4A3', '#FFA3D5', '#A3D4FF', '#BDFFA3']
 
 export default () => {
   return html`
-    <div x-ref="toolbar" class=${tw('ql-toolbar', styles.root, globalStyles)}>
+    <div x-ref="toolbar" class=${tw(styles.root, globalStyles)}>
       <!-- Headings -->
       <span class="ql-formats">
         <select class="ql-header">
@@ -98,17 +102,13 @@ export default () => {
           <option value="2" />
           <option selected />
         </select>
-      </span>
 
-      <!-- Bold, Italic, Underline -->
-      <span class="ql-formats">
+        <!-- Bold, Italic, Underline -->
         <button class="ql-bold"><${Help} /></button>
         <button class="ql-italic" />
         <button class="ql-underline" />
-      </span>
 
-      <!-- Blockquote, Color, Highlight & Link -->
-      <span class="ql-formats">
+        <!-- Blockquote, Color, Highlight & Link -->
         <button class="ql-blockquote" />
         <select class="ql-color">
           <option selected="selected" />
@@ -119,14 +119,12 @@ export default () => {
           ${_hlites.map(c => html` <option value=${c} /> `)}
         </select>
         <button class="ql-link" />
-      </span>
 
-      <!-- Break, Align, Ordered, Bullet & Clear -->
-      <span class="ql-formats">
-        <button class="ql-break"><${Help} /></button>
+        <!-- Break, Align, Ordered, Bullet & Clear -->
         <button class="ql-align" value="center" />
         <button class="ql-list" value="ordered" />
         <button class="ql-list" value="bullet" />
+        <button class="ql-break"><${Help} /></button>
         <button class="ql-clean" />
       </span>
     </div>
