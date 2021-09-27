@@ -51,7 +51,7 @@ export default props => {
       </div>
 
       <!-- Buttons -->
-      <div x-init class="flex flex-col text-center">
+      <!-- <div x-init class="flex flex-col text-center">
         <button @click="$store.theme.toggle()">Toggle Dark Mode</button>
         <div class="flex gap-4 justify-center">
           <button @click="$store.theme.setColor('blue')">Blue</button>
@@ -63,7 +63,7 @@ export default props => {
           <button @click="$store.theme.setColor('purple')">Purple</button>
         </div>
         <p x-text="$store.theme.dark" />
-      </div>
+      </div> -->
     </div>
   `
 }
