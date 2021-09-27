@@ -8,6 +8,9 @@ let color = 'blue'
 
 let globalStyles = css`
   :global {
+    .ql-editor {
+      padding: 16px 32px !important;
+    }
     // Containers
     .ql-toolbar {
       @apply !bg-red-500 text-left sm:text-center justify-center;
@@ -15,16 +18,12 @@ let globalStyles = css`
     .ql-formats {
       @apply bg-gray-50 shadow-sm rounded-lg space-x-2 space-y-1 px-2 py-1;
       margin: 0px !important;
-      display: flex !important;
     }
     .ql-picker-options {
-      top: 36px !important;
+      top: 32px !important;
       border: 0px !important;
       border-radius: 8px !important;
       background: ${colors.gray[50]} !important;
-    }
-    .ql-header .ql-picker-options {
-      top: 40px !important;
     }
     .ql-color .ql-picker-options,
     .ql-background .ql-picker-options {
@@ -110,6 +109,7 @@ export default () => {
 
         <!-- Blockquote, Color, Highlight & Link -->
         <button class="ql-blockquote" />
+        <button class="ql-link" />
         <select class="ql-color">
           <option selected="selected" />
           ${_colors.map(c => html` <option value=${c} /> `)}
@@ -118,7 +118,6 @@ export default () => {
           <option selected="selected" />
           ${_hlites.map(c => html` <option value=${c} /> `)}
         </select>
-        <button class="ql-link" />
 
         <!-- Break, Align, Ordered, Bullet & Clear -->
         <button class="ql-align" value="center" />
