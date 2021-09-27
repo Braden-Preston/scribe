@@ -1,33 +1,15 @@
 import EditorToolbar from './EditorToolbar'
 
-Alpine.data('editor', function () {
-  return {
-    loading: true,
-    init() {
-      setTimeout(async () => {
-        let { default: Quill } = await import('../global/quill')
-        this.quill = new Quill(this.$refs.editor, {
-          theme: 'snow',
-          modules: {
-            toolbar: this.$refs.toolbar
-          }
-        })
-
-        this.loading = false
-
-        this.addAriaLabels()
-      }, 0)
-    },
-    addAriaLabels() {
-      this.$refs.toolbar
-        .querySelectorAll('button, .ql-picker-label')
-        .forEach(el => el.setAttribute('aria-label', el.className.slice(3)))
-    },
-    classes() {
-      return tw`bg-red-500`
-    }
+Alpine.data('editor', () => ({
+  loading: true,
+  init() {
+    this.$store.editor.mountEditor(this)
+    this.$watch('$store.editor.loading', val => (this.loading = val))
+  },
+  classes() {
+    return tw`bg-red-500`
   }
-})
+}))
 
 export default props => {
   return html`
