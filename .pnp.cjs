@@ -42,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["htm", "npm:3.1.0"],
             ["prettier", "npm:2.4.1"],
             ["quill", "npm:1.3.7"],
+            ["quill-delta-to-html", "npm:0.12.0"],
             ["rimraf", "npm:3.0.2"],
             ["rollup-plugin-visualizer", "virtual:8363e5417d15456480448b07fa31f60c194b522e5bab4199eb0190ce535d623a8b37688255a3e3efaf16268dbbd23c80af21831f7a34770678d0f56b9e30a724#npm:5.5.2"],
             ["tailwindcss", "virtual:8363e5417d15456480448b07fa31f60c194b522e5bab4199eb0190ce535d623a8b37688255a3e3efaf16268dbbd23c80af21831f7a34770678d0f56b9e30a724#npm:2.2.15"],
@@ -1637,6 +1638,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["lodash.isequal", [
+        ["npm:4.5.0", {
+          "packageLocation": "./.yarn/cache/lodash.isequal-npm-4.5.0-f8b0f64d63-da27515dc5.zip/node_modules/lodash.isequal/",
+          "packageDependencies": [
+            ["lodash.isequal", "npm:4.5.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["lodash.topath", [
         ["npm:4.5.2", {
           "packageLocation": "./.yarn/cache/lodash.topath-npm-4.5.2-d5c9ec2440-04583e220f.zip/node_modules/lodash.topath/",
@@ -2266,6 +2276,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["quill-delta-to-html", [
+        ["npm:0.12.0", {
+          "packageLocation": "./.yarn/cache/quill-delta-to-html-npm-0.12.0-ed90f3b630-c4d41c47dc.zip/node_modules/quill-delta-to-html/",
+          "packageDependencies": [
+            ["quill-delta-to-html", "npm:0.12.0"],
+            ["lodash.isequal", "npm:4.5.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["readable-stream", [
         ["npm:2.3.7", {
           "packageLocation": "./.yarn/cache/readable-stream-npm-2.3.7-77b22a9818-e4920cf754.zip/node_modules/readable-stream/",
@@ -2472,6 +2492,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["htm", "npm:3.1.0"],
             ["prettier", "npm:2.4.1"],
             ["quill", "npm:1.3.7"],
+            ["quill-delta-to-html", "npm:0.12.0"],
             ["rimraf", "npm:3.0.2"],
             ["rollup-plugin-visualizer", "virtual:8363e5417d15456480448b07fa31f60c194b522e5bab4199eb0190ce535d623a8b37688255a3e3efaf16268dbbd23c80af21831f7a34770678d0f56b9e30a724#npm:5.5.2"],
             ["tailwindcss", "virtual:8363e5417d15456480448b07fa31f60c194b522e5bab4199eb0190ce535d623a8b37688255a3e3efaf16268dbbd23c80af21831f7a34770678d0f56b9e30a724#npm:2.2.15"],

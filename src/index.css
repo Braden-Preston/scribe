@@ -2,6 +2,11 @@
   display: none !important;
 }
 
+
+.ql-container {
+  border: 0px !important;
+}
+
 .ql-editor h1,
 .ql-editor h2,
 .ql-editor h3 {

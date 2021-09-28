@@ -13,7 +13,7 @@ Alpine.data('editor', () => ({
 
 export default props => {
   return html`
-    <div ...${props} x-data="editor" class="flex flex-1 flex-col mb-2">
+    <div ...${props} x-data="editor" class="flex flex-1 flex-col mb-2 overflow-y-scroll">
       <!-- Container -->
       <div
         id="wrapper"
@@ -24,7 +24,6 @@ export default props => {
         x-transition:leave="transition ease-in duration-200 origin-bottom"
         x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 transform translate-y-5 scale-95"
-        class="flex-1 overflow-hidden"
       >
         <!-- Toolbar -->
         <${EditorToolbar} />

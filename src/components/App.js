@@ -37,8 +37,8 @@ const App = () => html`
 
       <!-- Footer -->
       <div class="mb-6 mt-3 text-center">
-        <span class="text-gray-200">Designed by </span>
-        <span class="text-blue-400">@braden_preston</span>
+        <span class="text-gray-200">Designed for </span>
+        <a href="https://www.thepathoftruth.com/" target="_blank" class="text-blue-400">ThePathofTruth 🌲</span>
       </div>
     </div>
   </div>
