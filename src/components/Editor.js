@@ -15,7 +15,17 @@ export default props => {
   return html`
     <div ...${props} x-data="editor" class="flex flex-1 flex-col mb-2">
       <!-- Container -->
-      <div id="wrapper" x-show="!loading" class="flex-1 overflow-hidden">
+      <div
+        id="wrapper"
+        x-show="!loading"
+        x-transition:enter="transition ease-out duration-200 origin-bottom"
+        x-transition:enter-start="opacity-0 transform translate-y-5 scale-95"
+        x-transition:enter-end="opacity-100 transform translate-y-0 scale-100"
+        x-transition:leave="transition ease-in duration-200 origin-bottom"
+        x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
+        x-transition:leave-end="opacity-0 transform translate-y-5 scale-95"
+        class="flex-1 overflow-hidden"
+      >
         <!-- Toolbar -->
         <${EditorToolbar} />
 
@@ -27,9 +37,6 @@ export default props => {
           <p>Some initial <strong>bold</strong> text</p>
           <br />
         </div>
-      </div>
-      <div x-show="loading" class="flex-1 flex justify-center items-center">
-        Loading...
       </div>
 
       <!-- Buttons -->
