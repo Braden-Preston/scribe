@@ -30,13 +30,7 @@ export default props => {
         <${EditorToolbar} />
 
         <!-- Edit Area -->
-        <div id="editor" class="classes" x-ref="editor">
-          <h1>Hello World 1</h1>
-          <h2>Hello World 2</h2>
-          <br />
-          <p>Some initial <strong>bold</strong> text</p>
-          <br />
-        </div>
+        <div id="editor" class="classes" x-ref="editor" />
       </div>
 
       <!-- Buttons -->

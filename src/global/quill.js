@@ -105,4 +105,8 @@
 import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 
+import sample from '../assets/sampleDelta'
+
 export default Quill
+
+export const sampleDelta = sample

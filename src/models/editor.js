@@ -9,7 +9,12 @@ export default {
       this.toolbar = this.$refs.toolbar
       
       // Lazily import modules
-      let { default: Quill } = await import('../global/quill')
+      let { default: Quill, sampleDelta } = await import('../global/quill')
+
+      // Set some sample data
+      this.$refs.editor.innerHTML = sampleDelta
+
+      // Create a new editor
       this.quill = new Quill(this.editor, {
         theme: 'snow',
         modules: {
