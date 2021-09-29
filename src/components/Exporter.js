@@ -18,9 +18,6 @@ Alpine.data('exporter', () => ({
   html: '',
 
   init() {
-    const sampleText = `<html>\n\t<h1>This is a title!</h1>\n\t<p>This is a long paragraph where <strong>formatted text</strong> can go.</p>\n</html>\n\n<!-- Footer -->\n<div class="relative flex flex-col h-full justify-between">\n\t<div class="flex justify-center">\n\t\t<div class=" flex-1 items-center flex max-w-5xl h-16 inset-3 px-3">\n\t\t\t<div class=" text-gray-200 text-2xl items-center font-bold flex gap-3">\n\t\t\t<icon />\n\t\t\t<img class="h-10 w-10" src="logo" />\n\t\t\tTPOT Scribe\n\t\t</div>\n\t\t<div class="flex-1 flex items-end justify-end pr-0.5">\n\t\t\t<icon />\n\t\t</div>\n\t</div>\n</div>\n\n<div class="justify-center flex flex-1 mt-1 max-h-[750px]">\n\t<panel />\n</div>\n\n<div class="mb-6 mt-3 text-center">\n\t<span class="text-gray-200">Designed by </span>\n\t<span class="text-blue-400">@braden_preston</span>\n</div>`
-    // this.code = sampleText
-
     this.$watch('$store.editor.code', val => {
       this.code = val
     })
@@ -30,8 +27,9 @@ Alpine.data('exporter', () => ({
     return hljs.highlight(this.code, { language: 'html' }).value
   },
 
-  copyText() {
-    this.$store.editor.convertToHTML()
+  async copyText() {
+    this.code = await this.$store.editor.convertToHTML()
+    await navigator.clipboard.writeText(this.code)
   }
 }))
 

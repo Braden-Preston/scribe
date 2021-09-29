@@ -41,34 +41,43 @@ export default {
     let editorDelta = this.quill.getContents().ops
 
     let converter = new QuillConverter(editorDelta, {
-      inlineStyles: true,
-      multiLineParagraph: true
+      linkTarget: '',
+      encodeHtml: false,
+      multiLineParagraph: true,
+      inlineStyles: {
+        color(value, { attributes }) {
+          if (!attributes.link) {
+            return `color:${value};`
+          }
+        },
+        background(value, { attributes }) {
+          if (!attributes.link) {
+            return `background:${value};`
+          }
+        }
+      },
+      customTagAttributes({ attributes }) {
+        if (attributes.link) {
+          let hostname = new URL(attributes.link).hostname
+          if (hostname != 'www.thepathoftruth.com') {
+            return { target: '_blank' }
+          }
+        }
+      },
+      customTag(format) {
+        if (format == 'break') {
+          return 'hr'
+        }
+      }
     })
+
     let code = converter.convert()
       .replaceAll(/<br\/>+<br\/>/g, '</p><p>')
       .replaceAll(/<\/(p|h1|h2|brblockquote)>/g, '</$1>\n')
       .replaceAll(/<br\/>/g, '<br/>\n')
       .replaceAll(/<\/p>/g, `</p>\n`)
-      // .replaceAll(/<p>/g, `<p>\n`)
 
     this.code = code
-
-    // let fn = (i) => {
-    //   console.log(i)
-    // }
-
-    // let htx = htm.bind(fn)
-    // let parsed = htx`${code}`
-    console.log(code)
-
-    // console.log(parsed)
-
-    // console.log(pretty(code))
-
-    // this.code = pretty(code)
-
-    // console.log(pretty(this.code))
-
-    // console.log('HTML', this.code)
+    return this.code
   }
 }
