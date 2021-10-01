@@ -1,7 +1,7 @@
 import Switcher from './Switcher'
 import ActionMenu from './ActionMenu'
 import IconButton from './IconButton'
-import Help from './icons/Help'
+import Help from '../icons/Help'
 
 let styles = {
   root: `flex pt-3 px-3`,

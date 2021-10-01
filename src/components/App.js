@@ -2,7 +2,7 @@ import Background from './Background'
 import Panel from './Panel'
 import Icon from './Icon'
 import Logo from './Logo'
-import Color from './icons/Color'
+import Color from '../icons/Color'
 
 const App = () => html`
   <div class="bg-gray-700 h-screen w-screen relative text-gray-600">

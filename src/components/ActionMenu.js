@@ -1,8 +1,8 @@
 import Icon from './Icon'
 import DropIn from './DropIn'
 import IconButton from './IconButton'
-import Arrow from './icons/Arrow'
-import Menu from './icons/Menu'
+import Arrow from '../icons/Arrow'
+import Menu from '../icons/Menu'
 
 let styles = {
   buttonText: `flex flex-col justify-center px-2 text-center font-medium group-hover:scale-95 hidden sm:block`,
@@ -23,7 +23,7 @@ export default () =>
       <!-- Button -->
       <div class=${styles.actionBtn} @click="open = !open">
         <${IconButton} ...${{ icon: Menu }} />
-        <span class=${styles.buttonText}>Actions</span>
+        <span class=${styles.buttonText}>New</span>
         <${Icon} ...${{ size: 'sm', icon: Arrow, classes: styles.arrow }} />
       </div>
 
