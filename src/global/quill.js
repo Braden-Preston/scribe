@@ -107,12 +107,8 @@ import 'quill/dist/quill.snow.css'
 
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
 
-import sample from '../assets/sampleDelta'
-
-export default Quill
-
-export const sampleDelta = sample
-
 export const QuillConverter = QuillDeltaToHtmlConverter
 
 export const exportOptions = {}
+
+export default Quill

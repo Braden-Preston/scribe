@@ -4,7 +4,7 @@ import IconButton from './IconButton'
 import Help from '../icons/Help'
 
 let styles = {
-  root: `flex pt-3 px-3 z-50`,
+  root: `flex pt-3 px-3 z-50 select-none`,
   left: `flex-1 flex justify-start relative`,
   right: `flex-1 flex justify-end`,
   center: `flex-1 flex justify-center`

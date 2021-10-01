@@ -1,4 +1,5 @@
 import EditorToolbar from './EditorToolbar'
+import EditorContent from './EditorContent'
 
 Alpine.data('editor', () => ({
   loading: true,
@@ -13,11 +14,17 @@ Alpine.data('editor', () => ({
 
 export default props => {
   return html`
-    <div ...${props} x-data="editor" class="flex flex-1 flex-col mb-2 overflow-y-scroll">
-      <!-- Container -->
-      <div
+    <div
+      ...${props}
+      id="wrapper"
+      class="flex overflow-hidden"
+      x-data="editor"
+    >
+      <!-- Animated Panel-->
+      <div         
         id="wrapper"
         x-show="!loading"
+        class="flex flex-col overflow-hidden"
         x-transition:enter="transition ease-out duration-200 origin-bottom"
         x-transition:enter-start="opacity-0 transform translate-y-5 scale-95"
         x-transition:enter-end="opacity-100 transform translate-y-0 scale-100"
@@ -25,27 +32,19 @@ export default props => {
         x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 transform translate-y-5 scale-95"
       >
-        <!-- Toolbar -->
-        <${EditorToolbar} />
-
-        <!-- Edit Area -->
-        <div id="editor" class="classes" x-ref="editor" />
-      </div>
-
-      <!-- Buttons -->
-      <!-- <div x-init class="flex flex-col text-center">
-        <button @click="$store.theme.toggle()">Toggle Dark Mode</button>
-        <div class="flex gap-4 justify-center">
-          <button @click="$store.theme.setColor('blue')">Blue</button>
-          <button @click="$store.theme.setColor('green')">Green</button>
-          <button @click="$store.theme.setColor('teal')">Teal</button>
-          <button @click="$store.theme.setColor('orange')">Orange</button>
-          <button @click="$store.theme.setColor('pink')">Pink</button>
-          <button @click="$store.theme.setColor('red')">Red</button>
-          <button @click="$store.theme.setColor('purple')">Purple</button>
+        <!-- Toolbar Container -->
+        <div class="relative">
+          <${EditorToolbar} />
+          <div class="bg-gray-100 h-1" />
+          <div class="bg-gradient-to-b from-gray-100 w-[calc(100%-14px)] absolute h-5 z-10"></div>
         </div>
-        <p x-text="$store.theme.dark" />
-      </div> -->
+        <!-- Content Container -->
+        <div class="relative flex-1 flex flex-col overflow-hidden mx-2">
+          <${EditorContent} />
+          <div class="bg-gradient-to-t from-gray-100 w-[calc(100%-6px)] absolute bottom-5 h-5"></div>
+          <div class="bg-gray-100 h-6" />
+        </div>
+      </div>
     </div>
   `
 }

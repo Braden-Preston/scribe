@@ -33,6 +33,9 @@ export const config = {
   }
 }
 
+export const colors = config.theme.extend.colors
+export const shadows = config.theme.extend.boxShadow
+
 setup(config)
 
 window.tw = tw

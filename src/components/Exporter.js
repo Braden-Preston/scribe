@@ -35,7 +35,7 @@ Alpine.data('exporter', () => ({
 
 export default props => html`
   <div ...${props} x-data="exporter" class=${styles.root}>
-    <div class="font-medium text-center my-1">HTML Output</div>
+    <div class="font-medium text-center my-1.5 select-none">HTML Output</div>
 
     <!-- Code Preview -->
     <pre class=${styles.preview}>

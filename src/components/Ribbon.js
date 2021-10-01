@@ -9,9 +9,9 @@ Alpine.data('ribbon', () => ({
   classes(variant) {
     let color = colors[variant]
 
-    return tw`
-      ${apply`block bg-repeat-x bg-bottom h-[20px]`}
-      ${css`
+    return tw(
+      apply`block bg-repeat-x bg-bottom h-[20px]`,
+      css`
         background-size: 24px 100%;
         background-image: url("
           data:image/svg+xml;charset=UTF-8,
@@ -21,8 +21,8 @@ Alpine.data('ribbon', () => ({
           %3e%3cpath d='M20,1 C15,1 15,11 10,11 C5,11 5,1 -1.77635684e-15,1 C-1.77635684e-15,
           1 -1.77635684e-15,0.666666667 -1.77635684e-15,0 L20,0 C20,0.666666667 20,1 20,1 Z' 
           id='Line-Copy' fill='%23${color}'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
-      `}
-    `
+      `
+    )
   }
 }))
 

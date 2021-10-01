@@ -2,7 +2,6 @@ import Ribbon from './Ribbon'
 import PanelBar from './PanelBar'
 import Exporter from './Exporter'
 import Editor from './Editor'
-import Menu from '../icons/Menu'
 
 let styles = {
   root: `flex flex-col flex-1 max-w-5xl my-0 mx-2 md:mx-4 lg:mx-0 overflow-hidden`,

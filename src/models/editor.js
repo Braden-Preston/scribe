@@ -1,23 +1,25 @@
+import sampleDelta from '../assets/sampleDelta'
+
 export default {
   loading: true,
   code: null,
 
   mountEditor(el) {
     setTimeout(async () => {
-      // Get element bindings
-      this.$refs = el.$refs
-      this.editor = this.$refs.editor
-      this.toolbar = this.$refs.toolbar
-
+      // Get some element bindings
+      this.editor = document.querySelector('#editor')
+      this.toolbar = document.querySelector('#toolbar') 
       // Lazily import modules
-      let { default: Quill, sampleDelta } = await import('../global/quill')
+      let lazy = await import('../global/quill')
+      let { default: Quill } = lazy
 
       // Set some sample data
-      this.$refs.editor.innerHTML = sampleDelta
+      this.editor.innerHTML = sampleDelta
 
       // Create a new editor
       this.quill = new Quill(this.editor, {
         theme: 'snow',
+        bounds: this.editor,
         modules: {
           toolbar: this.toolbar
         }
@@ -31,16 +33,16 @@ export default {
   },
 
   addAriaLabels() {
-    this.$refs.toolbar
+    this.toolbar
       .querySelectorAll('button, .ql-picker-label')
       .forEach(el => el.setAttribute('aria-label', el.className.slice(3)))
   },
 
   async convertToHTML() {
-    let { QuillConverter } = await import('../global/quill')
+    let lazy = await import('../global/quill')
     let editorDelta = this.quill.getContents().ops
 
-    let converter = new QuillConverter(editorDelta, {
+    let converter = new lazy.QuillConverter(editorDelta, {
       linkTarget: '',
       encodeHtml: false,
       multiLineParagraph: true,

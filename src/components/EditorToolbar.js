@@ -93,7 +93,7 @@ let _hlites = ['#FFF4A3', '#FFA3D5', '#A3D4FF', '#BDFFA3']
 
 export default () => {
   return html`
-    <div x-ref="toolbar" class=${tw(styles.root, globalStyles)}>
+    <div id="toolbar" class=${tw(styles.root, globalStyles)}>
       <!-- Headings -->
       <span class="ql-formats">
         <select class="ql-header">
