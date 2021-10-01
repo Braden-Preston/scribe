@@ -5,7 +5,7 @@ import Logo from './Logo'
 import Color from '../icons/Color'
 
 const App = () => html`
-  <div class="bg-gray-700 h-screen w-screen relative text-gray-600">
+  <div class="bg-gray-700 h-screen w-screen relative text-gray-600 select-none">
     <!-- <${Background} /> -->
     <div class="relative flex flex-col h-full justify-between">
       <!-- Header -->

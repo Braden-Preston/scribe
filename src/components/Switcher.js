@@ -20,7 +20,7 @@ Alpine.data('switcher', () => ({
     let color = this.$store.theme.color
     return tw`
       text-white
-      bg-gradient-to-r 
+      bg-gradient-to-tr 
       from-${color}-500 
       to-${color}-300 
       shadow-${color}
