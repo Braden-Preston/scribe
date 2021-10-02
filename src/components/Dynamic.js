@@ -15,14 +15,14 @@ Alpine.data('scroll', () => ({
             border-radius: 6px;
           }
           ::-webkit-scrollbar-thumb {
-            background: ${colors[color][400]}; 
+            background: ${colors[color][400]};
             border-radius: 6px;
           }
           ::-webkit-scrollbar-thumb:hover {
-            background: ${colors[color][500]}; 
+            background: ${colors[color][500]};
             border-radius: 6px;
           }
-          ::-webkit-scrollbar-corner  {
+          ::-webkit-scrollbar-corner {
             background: transparent !important;
           }
           ::selection {
@@ -37,12 +37,8 @@ Alpine.data('scroll', () => ({
       `
     )
   }
-
 }))
 
 export default () => {
-
-  return html`
-    <span x-data="scroll" :class="classes" />
-  `
+  return html` <span x-data="scroll" :class="classes" /> `
 }

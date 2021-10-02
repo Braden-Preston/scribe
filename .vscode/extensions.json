@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "bierner.lit-html",
+    "heybourn.headwind",
+    "bradlc.vscode-tailwindcss",
+    "adrianwilczynski.alpine-js-intellisense",
+    "esbenp.prettier-vscode",
+    "arcanis.vscode-zipfs"
+  ]
+}

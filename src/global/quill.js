@@ -37,7 +37,6 @@
 
 // // import SnowTheme from 'quill/themes/snow';
 
-
 // Quill.register({
 //   'attributors/attribute/direction': DirectionAttribute,
 
@@ -55,7 +54,6 @@
 //   'attributors/style/font': FontStyle,
 //   'attributors/style/size': SizeStyle
 // }, true);
-
 
 // Quill.register({
 //   'formats/align': AlignClass,
@@ -98,9 +96,7 @@
 //   // 'ui/tooltip': Tooltip
 // }, true);
 
- 
 // export default Quill;
-
 
 import Quill from 'quill'
 import 'quill/dist/quill.snow.css'

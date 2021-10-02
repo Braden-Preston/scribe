@@ -1,5 +1,6 @@
 import sampleDelta from '../assets/sampleDelta'
 
+// Global Alpine store for editor
 export default {
   loading: true,
   code: null,
@@ -8,7 +9,7 @@ export default {
     setTimeout(async () => {
       // Get some element bindings
       this.editor = document.querySelector('#editor')
-      this.toolbar = document.querySelector('#toolbar') 
+      this.toolbar = document.querySelector('#toolbar')
       // Lazily import modules
       let lazy = await import('../global/quill')
       let { default: Quill } = lazy
@@ -20,22 +21,26 @@ export default {
       this.quill = new Quill(this.editor, {
         theme: 'snow',
         bounds: this.editor,
+        formats: validFormats,
         modules: {
           toolbar: this.toolbar
+        },
+        clipboard: {
+          matchers: []
         }
       })
 
       this.loading = false
 
       // For accessibility
-      this.addAriaLabels()
+      this.addAriaLabels(this.toolbar)
     }, 50)
   },
 
-  addAriaLabels() {
-    this.toolbar
-      .querySelectorAll('button, .ql-picker-label')
-      .forEach(el => el.setAttribute('aria-label', el.className.slice(3)))
+  addAriaLabels(el) {
+    el.querySelectorAll('button, .ql-picker-label').forEach(el =>
+      el.setAttribute('aria-label', el.className.slice(3))
+    )
   },
 
   async convertToHTML() {
@@ -73,7 +78,8 @@ export default {
       }
     })
 
-    let code = converter.convert()
+    let code = converter
+      .convert()
       .replaceAll(/<br\/>+<br\/>/g, '</p><p>')
       .replaceAll(/<\/(p|h1|h2|brblockquote)>/g, '</$1>\n')
       .replaceAll(/<br\/>/g, '<br/>\n')
@@ -83,3 +89,20 @@ export default {
     return this.code
   }
 }
+
+// Temp until custom quill bundle
+const validFormats = [
+  'background',
+  'bold',
+  'color',
+  'italic',
+  'link',
+  'underline',
+  'blockquote',
+  'header',
+  'list',
+  'align',
+  'break'
+]
+
+const bindings = {}

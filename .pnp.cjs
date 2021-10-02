@@ -40,6 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["alpinejs", "npm:3.3.3"],
             ["highlight.js", "npm:11.2.0"],
             ["htm", "npm:3.1.0"],
+            ["postcss", "npm:8.3.8"],
             ["prettier", "npm:2.4.1"],
             ["quill", "npm:1.3.7"],
             ["quill-delta-to-html", "npm:0.12.0"],
@@ -2123,7 +2124,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["postcss-nested", "virtual:854ad789605b9d01a8d0c58d2551733f933f951a308ce6b33dfc3be9335ccb67a3fd139941ed13da86df6ada996c721d154aa7e03c4c1324372888d0d65b826f#npm:5.0.6"],
             ["@types/postcss", null],
-            ["postcss", null],
+            ["postcss", "npm:8.3.8"],
             ["postcss-selector-parser", "npm:6.0.6"]
           ],
           "packagePeers": [
@@ -2490,6 +2491,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["alpinejs", "npm:3.3.3"],
             ["highlight.js", "npm:11.2.0"],
             ["htm", "npm:3.1.0"],
+            ["postcss", "npm:8.3.8"],
             ["prettier", "npm:2.4.1"],
             ["quill", "npm:1.3.7"],
             ["quill-delta-to-html", "npm:0.12.0"],
@@ -2732,7 +2734,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-emoji", "npm:1.11.0"],
             ["normalize-path", "npm:3.0.0"],
             ["object-hash", "npm:2.2.0"],
-            ["postcss", null],
+            ["postcss", "npm:8.3.8"],
             ["postcss-js", "npm:3.0.3"],
             ["postcss-load-config", "virtual:854ad789605b9d01a8d0c58d2551733f933f951a308ce6b33dfc3be9335ccb67a3fd139941ed13da86df6ada996c721d154aa7e03c4c1324372888d0d65b826f#npm:3.1.0"],
             ["postcss-nested", "virtual:854ad789605b9d01a8d0c58d2551733f933f951a308ce6b33dfc3be9335ccb67a3fd139941ed13da86df6ada996c721d154aa7e03c4c1324372888d0d65b826f#npm:5.0.6"],

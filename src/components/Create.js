@@ -24,29 +24,32 @@ export default () =>
       <div class=${styles.actionBtn} @click="open = !open">
         <${IconButton} ...${{ icon: Menu }} />
         <span class=${styles.buttonText}>New</span>
-        <${Icon} ...${{ size: 'sm', icon: Arrow  }} />
+        <${Icon} ...${{ size: 'sm', icon: Arrow }} />
       </div>
 
       <!-- Dropdown -->
       <div class=${styles.menu}>
         <${DropIn} ...${{ open: 'open' }}>
-          <div class="flex flex-col space-y-4 m-5 bg-gray-50 shadow-2xl rounded-lg overflow-hidden">
-            <div class="bg-gradient-to-tr from-blue-500 to-blue-300 space-x-4 text-white flex items-center py-3 px-4">
+          <div class="flex flex-col space-y-4 m-5 bg-gray-50 shadow-2xl rounded-lg overflow-hidden" >
+            <div class="bg-gradient-to-tr from-blue-500 to-blue-300 space-x-4 text-white flex items-center py-3 px-4" >
               <${Icon} ...${{ classes: 'text-white h-8 w-8 mt-1', icon: Warn }} />
               <div class="text-2xl">Are you sure?</div>
             </div>
             <div class="px-4">Creating a new page will clear the editor</div>
-            <div class='flex justify-right space-x-4 px-4 pb-4'>
-              <button @click="open = false" class="bg-gray-200 px-4 py-1 rounded-lg !outline-none">Hold on</button>
-              <button @click="console.log('clear'); open = false" class="bg-gradient-to-tr from-blue-500 to-blue-300 shadow-blue bg-blue-400 text-white px-4 py-1 rounded-lg !outline-none">Continue</button>
+            <div class="flex justify-right space-x-4 px-4 pb-4">
+              <button
+                @click="open = false"
+                class="bg-gray-200 px-4 py-1 rounded-lg !outline-none"
+              > Hold on
+              </button>
+              <button
+                @click="console.log('clear'); open = false"
+                class="bg-gradient-to-tr from-blue-500 to-blue-300 shadow-blue bg-blue-400 text-white px-4 py-1 rounded-lg !outline-none"
+              > Continue
+              </button>
             </div>
           </div>
-          <//>
-        </div>
-      <!-- <${DropIn} ...${{ open: 'open' }}>
-        <div class=${styles.menu} @click.away="open = false">
-          <div>stuff</div>
-        </div>
-      <//> -->
+        <//>
+      </div>
     </div>
   `

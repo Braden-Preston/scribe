@@ -29,7 +29,7 @@ Each package is an ESM module and selected to be as lightweight as possible. The
 
 Bundling the app is optional though. Every package could be loaded over a CDN. Features like JSX templating and CSS-in-JS are possible in the browser without any build step.
 
-## 🛰️ Development 
+## 🛰️ Development
 
 This project is designed to use [Yarn 2](https://yarnpkg.com/getting-started/migration) and Node 12+. Everything should already be configured so that you can clone the repo and run `yarn` to install the PnP packages.
 
@@ -44,7 +44,7 @@ Use [Visual Studio Code](https://code.visualstudio.com/) with the following exte
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [ZipFS](https://marketplace.visualstudio.com/items?itemName=arcanis.vscode-zipfs)
 
-### 💻 Commands 
+### 💻 Commands
 
 **`yarn dev`** - Start hot-reload development server
 
@@ -62,7 +62,7 @@ Use [Visual Studio Code](https://code.visualstudio.com/) with the following exte
 
 The app uses Alpine as its framework. Out of the box, it does not have a concept of "components" like React or Vue. So to create elements, we use a render function that returns a string. From there, Alpine binds the markup to reactive data.
 
-The render function `html`, is a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows you to use JSX-like syntax to define a component. The concept comes from  Make sure you have the [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) installed first. It will provided syntax highlighting and formatting for `html`. 
+The render function `html`, is a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows you to use JSX-like syntax to define a component. The concept comes from Make sure you have the [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) installed first. It will provided syntax highlighting and formatting for `html`.
 
 `html` is provided by Preact's `htm` library, which provies JSX without a build step. See the [full documentation](https://github.com/developit/htm) to see everything that is possible.
 
@@ -87,12 +87,11 @@ Alpine.data('counter', () => ({
 
 export default () => html`
   <div x-data="counter" class=${styles.root}>
-    <button @click="count++" x-text="inc"/>
-    <button @click="count++" x-text="dec"/>
-    <p x-text="message">
+    <button @click="count++" x-text="inc" />
+    <button @click="count++" x-text="dec" />
+    <p x-text="message"></p>
   </div>
 `
-
 ```
 
 ## 🚀 Deployment

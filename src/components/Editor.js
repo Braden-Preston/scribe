@@ -14,14 +14,9 @@ Alpine.data('editor', () => ({
 
 export default props => {
   return html`
-    <div
-      ...${props}
-      id="wrapper"
-      class="flex overflow-hidden"
-      x-data="editor"
-    >
+    <div ...${props} id="wrapper" class="flex overflow-hidden" x-data="editor">
       <!-- Animated Panel-->
-      <div         
+      <div
         id="wrapper"
         x-show="!loading"
         class="flex flex-col overflow-hidden"
@@ -36,12 +31,16 @@ export default props => {
         <div class="relative">
           <${EditorToolbar} />
           <div class="bg-gray-100 h-1" />
-          <div class="bg-gradient-to-b from-gray-100 w-[calc(100%-14px)] absolute h-5 z-10"></div>
+          <div
+            class="bg-gradient-to-b from-gray-100 w-[calc(100%-14px)] absolute h-5 z-10"
+          ></div>
         </div>
         <!-- Content Container -->
         <div class="relative flex-1 flex flex-col overflow-hidden mx-2">
           <${EditorContent} />
-          <div class="bg-gradient-to-t from-gray-100 w-[calc(100%-6px)] absolute bottom-5 h-5"></div>
+          <div
+            class="bg-gradient-to-t from-gray-100 w-[calc(100%-6px)] absolute bottom-5 h-5"
+          ></div>
           <div class="bg-gray-100 h-6" />
         </div>
       </div>

@@ -1,4 +1,3 @@
-import Icon from './Icon'
 import Help from '../icons/Help'
 
 import { config } from '../global/twind'

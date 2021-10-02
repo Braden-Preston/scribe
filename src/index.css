@@ -23,18 +23,18 @@
 }
 
 .ql-editor p {
-	font-size: 1rem !important;
+  font-size: 1rem !important;
   line-height: 1.5rem !important;
 }
 
 .ql-editor a {
-  color: #0EA5E9 !important;
-  background: #E0F2FE !important;
+  color: #0ea5e9 !important;
+  background: #e0f2fe !important;
   border-radius: 0px;
 }
 
 .ql-tooltip {
-  background: #F8FAFC !important;
+  background: #f8fafc !important;
   color: #64748b !important;
   border: 0px !important;
   font-size: 14px !important;
@@ -45,7 +45,7 @@
   font-size: 14px !important;
   border-radius: 6px !important;
   outline-color: #0ea5e9 !important;
-  background: #F8FAFC !important;
+  background: #f8fafc !important;
   color: #64748b !important;
 }
 
@@ -54,6 +54,8 @@
   color: #64748b !important;
 }
 
-.ql-action, .ql-remove, .ql-preview {
+.ql-action,
+.ql-remove,
+.ql-preview {
   color: #0ea5e9 !important;
 }
