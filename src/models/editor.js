@@ -23,8 +23,19 @@ export default {
     setTimeout(() => autosave(editor, 5 /* mins */, this.persist), 1000)
 
     // Save on page exit / reload
-    window.onunload = this.persist
+    ;['blur', 'visibilitychange'].forEach(type => {
+      // prettier-ignore
+      window.addEventListener(type, 
+        () => document.visibilityState === 'hidden' && this.persist(),
+        { capture: true }
+      )
+    })
 
+    // window.onunload = this.persist
+    document.addEventListener('freeze', event => {
+      // The page has been unfrozen.
+      console.log('The page has been unfrozen')
+    })
     return editor
   },
 
