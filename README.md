@@ -1,8 +1,9 @@
 <div align="center">
   <h1>TPOT Scribe</h1>
   <p>A Progressive Web App that easily converts DOCX files to HTML while preserving styles</p>
+  <p><a href="https://tpot-scribe.vercel.app" target="_blank">See the app <u>live</u></a></p>
   <img src="/src/assets/preview.png" />
-  <p>Designed for <a href="https://www.thepathoftruth.com" target="_blank">ThePathofTruth</a> 🌲</p>
+    <p>Designed for <a href="https://www.thepathoftruth.com" target="_blank">ThePathofTruth</a> 🌲</p>
 </div>
 
 ## ✨ Features
@@ -14,9 +15,9 @@
 
 ## 📦 Tech Stack
 
-The app strives to use the best and most modern practices (PnP, tree-shaking, code-splitting, etc)
+This app uses the best, modern practices available (PnP, tree-shaking, code-splitting, etc.)
 
-Each package is an ESM module and selected to be as lightweight as possible. The result is an app that [builds fast](#build) with a small footprint.
+Every package is an ESM module, selected to be as lightweight as possible. The result is an app that [builds fast](#build) with a small footprint, under 55Kb (first-paint, Brotli compression)
 
 | Package                                                 |           Description           | Size (br) |
 | :------------------------------------------------------ | :-----------------------------: | --------: |
@@ -27,7 +28,9 @@ Each package is an ESM module and selected to be as lightweight as possible. The
 | [highlight](https://www.npmjs.com/package/highlight.js) |    Color coding HTML syntax     |    7.3 Kb |
 | [vhtml](https://github.com/developit/vhtml)             |  Creates html render functions  |    0.7 Kb |
 
-Bundling the app is optional though. Every package could be loaded over a CDN. Features like JSX templating and CSS-in-JS are possible in the browser without any build step.
+[Vite](https://vitejs.dev/) brings a super-fast development experience powered by [esbuild](https://esbuild.github.io/) under the hood. The production bundle is handled by [Rollup](https://rollupjs.org/guide/en/) through Vite.
+
+Every package could be loaded over a CDN. Features like JSX templating and CSS-in-JS are possible in the browser without any build step.
 
 ## 🛰️ Development
 
@@ -35,7 +38,7 @@ This project is designed to use [Yarn 2](https://yarnpkg.com/getting-started/mig
 
 ### ⚡ Extensions
 
-Use [Visual Studio Code](https://code.visualstudio.com/) with the following extensions for the best experience. They are installed automatically if you open the repo's workspace file in VSCode.
+Please use [Visual Studio Code](https://code.visualstudio.com/) with the following extensions for the best experience. They are recommended automatically if you open the repo's workspace in VSCode.
 
 - [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html)
 - [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind)
@@ -46,7 +49,7 @@ Use [Visual Studio Code](https://code.visualstudio.com/) with the following exte
 
 ### 💻 Commands
 
-**`yarn dev`** - Start hot-reload development server
+**`yarn dev`** - Start a super-fast development server
 
 **`yarn build`** - Bundle and optimize for production
 
@@ -60,13 +63,13 @@ Use [Visual Studio Code](https://code.visualstudio.com/) with the following exte
 
 ### 📚 Style Guide
 
-The app uses Alpine as its framework. Out of the box, it does not have a concept of "components" like React or Vue. So to create elements, we use a render function that returns a string. From there, Alpine binds the markup to reactive data.
+Alpine is the perfect UI framework - but out of the box, it does not have a concept of components like React or Vue. So to create "components", we use a render function that returns an html string. From there, Alpine binds the markup to its reactive data.
 
-The render function `html`, is a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows you to use JSX-like syntax to define a component. The concept comes from Make sure you have the [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) installed first. It will provided syntax highlighting and formatting for `html`.
+The render function `html`, is a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows you to use JSX-like syntax to define a component. The concept comes from [lit-html](https://lit-html.polymer-project.org/guide) and others. Make sure you have the [lit-html extension](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) installed first. It will provide syntax highlighting and formatting for `html`.
 
-`html` is provided by Preact's `htm` library, which provies JSX without a build step. See the [full documentation](https://github.com/developit/htm) to see everything that is possible.
+The `html` render function is provided by Preact's `htm` and `vhtml`, which provides the JSX syntax without a build step. See the [full documentation](https://github.com/developit/htm) to see everything that is possible.
 
-`tw`, `css` & `apply` are provided by [twind](https://twind.dev/), which provides unlimited [tailwind](https://tailwindcss.com/) styles on demand within the browser.
+`tw`, `css` & `apply` are provided by [twind](https://twind.dev/), and fulfill all styling needs in the app. Twind provides unlimited [tailwind](https://tailwindcss.com/) styles on demand in the browser.
 
 #### Component Example
 
@@ -88,8 +91,8 @@ Alpine.data('counter', () => ({
 export default () => html`
   <div x-data="counter" class=${styles.root}>
     <button @click="count++" x-text="inc" />
-    <button @click="count++" x-text="dec" />
-    <p x-text="message"></p>
+    <button @click="count--" x-text="dec" />
+    <p x-text="message" />
   </div>
 `
 ```
