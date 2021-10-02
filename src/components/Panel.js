@@ -13,6 +13,9 @@ Alpine.data('panel', function () {
     mode: this.$persist('editor'),
     setMode(mode) {
       this.mode = mode
+      if (mode == 'export') {
+        this.$store.editor.convert()
+      }
     }
   }
 })

@@ -14,23 +14,10 @@ let styles = {
 }
 
 Alpine.data('exporter', () => ({
-  code: '',
-  html: '',
-
-  init() {
-    this.$watch('$store.editor.code', val => {
-      this.code = val
-    })
-  },
-
   html() {
-    return hljs.highlight(this.code, { language: 'html' }).value
+    return hljs.highlight(this.$store.editor.code || '', { language: 'html' })
+      .value
   },
-
-  async copyText() {
-    this.code = await this.$store.editor.convert()
-    await navigator.clipboard.writeText(this.code)
-  }
 }))
 
 export default props => html`
@@ -44,7 +31,7 @@ export default props => html`
 
     <!-- Copy Button -->
     <div class="justify-center flex">
-      <button @click="copyText" class=${styles.button}>
+      <button @click="$store.editor.copy()" class=${styles.button}>
         Copy Text
         <${Icon} ...${{ size: 'sm', classes: 'text-white', icon: Copy }} />
       </button>

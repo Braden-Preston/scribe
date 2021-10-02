@@ -37,7 +37,7 @@ export default () => {
           btn => html`
             <button
               class=${styles.baseBtn}
-              @click=${`mode = '${btn.mode}'`}
+              @click=${`setMode('${btn.mode}')`}
               :class=${`mode == '${btn.mode}' && activeClass`}
             >
               ${btn.label}

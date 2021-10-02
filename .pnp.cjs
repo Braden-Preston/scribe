@@ -43,7 +43,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.3.8"],
             ["prettier", "npm:2.4.1"],
             ["quill", "npm:1.3.7"],
-            ["quill-delta", "npm:4.2.2"],
             ["quill-delta-to-html", "npm:0.12.0"],
             ["rimraf", "npm:3.0.2"],
             ["rollup-plugin-visualizer", "virtual:8363e5417d15456480448b07fa31f60c194b522e5bab4199eb0190ce535d623a8b37688255a3e3efaf16268dbbd23c80af21831f7a34770678d0f56b9e30a724#npm:5.5.2"],
@@ -977,13 +976,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fast-diff", "npm:1.1.2"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:1.2.0", {
-          "packageLocation": "./.yarn/cache/fast-diff-npm-1.2.0-5ba4171bb6-1b5306eaa9.zip/node_modules/fast-diff/",
-          "packageDependencies": [
-            ["fast-diff", "npm:1.2.0"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["fast-glob", [
@@ -1647,15 +1639,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["lodash.clonedeep", [
-        ["npm:4.5.0", {
-          "packageLocation": "./.yarn/cache/lodash.clonedeep-npm-4.5.0-fbc3cda4e5-92c46f094b.zip/node_modules/lodash.clonedeep/",
-          "packageDependencies": [
-            ["lodash.clonedeep", "npm:4.5.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["lodash.isequal", [
         ["npm:4.5.0", {
           "packageLocation": "./.yarn/cache/lodash.isequal-npm-4.5.0-f8b0f64d63-da27515dc5.zip/node_modules/lodash.isequal/",
@@ -2292,16 +2275,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fast-diff", "npm:1.1.2"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:4.2.2", {
-          "packageLocation": "./.yarn/cache/quill-delta-npm-4.2.2-a1a0d31236-6a71e3dfb4.zip/node_modules/quill-delta/",
-          "packageDependencies": [
-            ["quill-delta", "npm:4.2.2"],
-            ["fast-diff", "npm:1.2.0"],
-            ["lodash.clonedeep", "npm:4.5.0"],
-            ["lodash.isequal", "npm:4.5.0"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["quill-delta-to-html", [
@@ -2521,7 +2494,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.3.8"],
             ["prettier", "npm:2.4.1"],
             ["quill", "npm:1.3.7"],
-            ["quill-delta", "npm:4.2.2"],
             ["quill-delta-to-html", "npm:0.12.0"],
             ["rimraf", "npm:3.0.2"],
             ["rollup-plugin-visualizer", "virtual:8363e5417d15456480448b07fa31f60c194b522e5bab4199eb0190ce535d623a8b37688255a3e3efaf16268dbbd23c80af21831f7a34770678d0f56b9e30a724#npm:5.5.2"],

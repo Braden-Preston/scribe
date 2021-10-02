@@ -96,8 +96,8 @@ export default () => {
       <!-- Headings -->
       <span class="ql-formats">
         <select class="ql-header">
-          <option value="1" />
-          <option value="2" />
+          <option value="3" />
+          <option value="4" />
           <option selected />
         </select>
 
@@ -122,7 +122,7 @@ export default () => {
         <button class="ql-align" value="center" />
         <button class="ql-list" value="ordered" />
         <button class="ql-list" value="bullet" />
-        <button class="ql-break"><${Help} /></button>
+        <button class="ql-divider"><${Help} /></button>
         <button class="ql-clean" />
       </span>
     </div>
