@@ -7,9 +7,9 @@
 
 ## ✨ Features
 
-- 🌱 Create from clipboard or upload from disk.
-- 🌗 User selected theme color & dark mode.
-- 💦 Lastest document persisted between loads.
+- 🌱 Create from clipboard or start from scratch.
+- 🌗 User can select theme color & dark mode.
+- 💦 Last document is kept between page loads.
 - 🧱 Full offline support. No internet required.
 
 ## 📦 Tech Stack

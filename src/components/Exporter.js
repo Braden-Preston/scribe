@@ -28,7 +28,7 @@ Alpine.data('exporter', () => ({
   },
 
   async copyText() {
-    this.code = await this.$store.editor.convertToHTML()
+    this.code = await this.$store.editor.convert()
     await navigator.clipboard.writeText(this.code)
   }
 }))

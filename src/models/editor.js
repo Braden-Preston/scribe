@@ -1,101 +1,54 @@
-import sampleDelta from '../assets/sampleDelta'
 import Delta from 'quill-delta'
+import sampleDelta from '../assets/sampleDelta'
 
 /* -------------------------------------------- */
 /*              Alpine Editor Store             */
 /* -------------------------------------------- */
 
+let editor = null
+
 export default {
+  code: '',
   loading: true,
-  code: null,
 
-  mountEditor() {
-    setTimeout(async () => {
-      // Get some element bindings
-      this.editor = document.querySelector('#editor')
-      this.toolbar = document.querySelector('#toolbar')
-      // Lazily import modules
-      let lazy = await import('../global/quill')
-      let { default: Quill } = lazy
+  async create() {
+    // Set some sample data
+    // document.querySelector('#editor').innerHTML = sampleDelta
 
-      // Set some sample data
-      this.editor.innerHTML = sampleDelta
+    editor = await createEditor()
+    this.loading = false
 
-      // Create a new editor
-      this.quill = new Quill(this.editor, {
-        theme: 'snow',
-        bounds: this.editor,
-        formats: validFormats,
-        modules: {
-          toolbar: this.toolbar,
-          keyboard: {
-            bindings: bindings
-          },
-          clipboard: {
-            matchers: matchers
-          }
-        }
-      })
+    // Load previous session
+    this.hydrate()
 
-      this.quill.focus()
+    // Start autosaving changes
+    autosave(5 /* mins */, this.persist)
 
-      this.loading = false
-
-      // For accessibility
-      this.addAriaLabels(this.toolbar)
-    }, 50)
+    // Save on page exit / reload
+    window.onunload = this.persist
   },
 
-  addAriaLabels(el) {
-    el.querySelectorAll('button, .ql-picker-label').forEach(el =>
-      el.setAttribute('aria-label', el.className.slice(3))
-    )
+  async persist() {
+    let data = JSON.stringify(editor.getContents())
+    localStorage.setItem('_x_quill', data)
   },
 
-  async convertToHTML() {
-    let lazy = await import('../global/quill')
-    let editorDelta = this.quill.getContents().ops
+  async hydrate() {
+    let delta = localStorage.getItem('_x_quill')
+    delta && editor.setContents(JSON.parse(delta).ops)
+  },
 
-    let converter = new lazy.QuillConverter(editorDelta, {
-      linkTarget: '',
-      encodeHtml: false,
-      multiLineParagraph: true,
-      inlineStyles: {
-        color(value, { attributes }) {
-          if (!attributes.link) {
-            return `color:${value};`
-          }
-        },
-        background(value, { attributes }) {
-          if (!attributes.link) {
-            return `background:${value};`
-          }
-        }
-      },
-      customTagAttributes({ attributes }) {
-        if (attributes.link) {
-          let hostname = new URL(attributes.link).hostname
-          if (hostname != 'www.thepathoftruth.com') {
-            return { target: '_blank' }
-          }
-        }
-      },
-      customTag(format) {
-        if (format == 'break') {
-          return 'hr'
-        }
-      }
-    })
+  async convert() {
+    this.code = await deltaToHtml()
+  },
 
-    let code = converter
-      .convert()
-      .replaceAll(/<br\/>+<br\/>/g, '</p><p>')
-      .replaceAll(/<\/(p|h1|h2|brblockquote)>/g, '</$1>\n')
-      .replaceAll(/<br\/>/g, '<br/>\n')
-      .replaceAll(/<\/p>/g, `</p>\n`)
+  async clear() {
+    editor.setContents([])
+    editor.focus()
+  },
 
-    this.code = code
-    return this.code
+  copy() {
+    return navigator.clipboard.writeText(this.code)
   }
 }
 
@@ -169,3 +122,100 @@ const matchers = [
   [Node.ELEMENT_NODE, headingMatcher],
   [Node.ELEMENT_NODE, quoteMatcher]
 ]
+
+/* --------- Editor Creation Function --------- */
+
+async function createEditor() {
+  // Lazy import
+  let lazy = await import('../global/quill')
+  let { default: Quill } = lazy
+
+  // Create a new editor
+  let editor = new Quill('#editor', {
+    theme: 'snow',
+    placeholder: '\tTo get started, begin typing here...',
+    formats: validFormats,
+    bounds: '#editor',
+    modules: {
+      toolbar: '#toolbar',
+      keyboard: {
+        bindings: bindings
+      },
+      clipboard: {
+        matchers: matchers
+      }
+    }
+  })
+
+  // Add Aria labels for accesibility
+  document
+    .querySelector('#editor')
+    .querySelectorAll('button, .ql-picker-label')
+    .forEach(el => el.setAttribute('aria-label', el.className.slice(3)))
+
+  editor.focus()
+
+  return editor
+}
+
+/* ------------ Conversion Function ----------- */
+
+async function deltaToHtml() {
+  let lazy = await import('../global/quill')
+  let editorDelta = editor.getContents().ops
+
+  let converter = new lazy.QuillConverter(editorDelta, {
+    linkTarget: '',
+    encodeHtml: false,
+    multiLineParagraph: true,
+    inlineStyles: {
+      color(value, { attributes }) {
+        if (!attributes.link) {
+          return `color:${value};`
+        }
+      },
+      background(value, { attributes }) {
+        if (!attributes.link) {
+          return `background:${value};`
+        }
+      }
+    },
+    customTagAttributes({ attributes }) {
+      if (attributes.link) {
+        let hostname = new URL(attributes.link).hostname
+        if (hostname != 'www.thepathoftruth.com') {
+          return { target: '_blank' }
+        }
+      }
+    },
+    customTag(format) {
+      if (format == 'break') {
+        return 'hr'
+      }
+    }
+  })
+
+  return converter
+    .convert()
+    .replaceAll(/<br\/>+<br\/>/g, '</p><p>')
+    .replaceAll(/<\/(p|h1|h2|brblockquote)>/g, '</$1>\n')
+    .replaceAll(/<br\/>/g, '<br/>\n')
+    .replaceAll(/<\/p>/g, `</p>\n`)
+}
+
+/* -------------- Autosave Timer -------------- */
+
+function autosave(minutes, save) {
+  let change = new Delta()
+
+  editor.on('text-change', function (delta) {
+    change = change.compose(delta)
+  })
+
+  setInterval(() => {
+    if (change.length() > 0) {
+      change = new Delta()
+      save()
+    }
+  }, 60000 * minutes)
+}

@@ -43,7 +43,7 @@ export default () =>
               > Hold on
               </button>
               <button
-                @click="console.log('clear'); open = false"
+                @click="$store.editor.clear(); open = false"
                 class="bg-gradient-to-tr from-blue-500 to-blue-300 shadow-blue bg-blue-400 text-white px-4 py-1 rounded-lg !outline-none"
               > Continue
               </button>
