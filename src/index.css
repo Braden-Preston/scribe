@@ -22,7 +22,7 @@
   font-weight: 700;
 }
 
-.ql-editor p {
+.ql-editor p, ol, ul {
   font-size: 1rem !important;
   line-height: 1.5rem !important;
 }

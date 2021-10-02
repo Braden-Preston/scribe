@@ -19,7 +19,7 @@ export default props => {
       <div
         id="wrapper"
         x-show="!loading"
-        class="flex flex-col overflow-hidden"
+        class="flex flex-1 flex-col overflow-hidden"
         x-transition:enter="transition ease-out duration-200 origin-bottom"
         x-transition:enter-start="opacity-0 transform translate-y-5 scale-95"
         x-transition:enter-end="opacity-100 transform translate-y-0 scale-100"

@@ -1,11 +1,15 @@
 import sampleDelta from '../assets/sampleDelta'
+import Delta from 'quill-delta'
 
-// Global Alpine store for editor
+/* -------------------------------------------- */
+/*              Alpine Editor Store             */
+/* -------------------------------------------- */
+
 export default {
   loading: true,
   code: null,
 
-  mountEditor(el) {
+  mountEditor() {
     setTimeout(async () => {
       // Get some element bindings
       this.editor = document.querySelector('#editor')
@@ -23,12 +27,17 @@ export default {
         bounds: this.editor,
         formats: validFormats,
         modules: {
-          toolbar: this.toolbar
-        },
-        clipboard: {
-          matchers: []
+          toolbar: this.toolbar,
+          keyboard: {
+            bindings: bindings
+          },
+          clipboard: {
+            matchers: matchers
+          }
         }
       })
+
+      this.quill.focus()
 
       this.loading = false
 
@@ -90,6 +99,10 @@ export default {
   }
 }
 
+/* -------------------------------------------- */
+/*              Quill Customization             */
+/* -------------------------------------------- */
+
 // Temp until custom quill bundle
 const validFormats = [
   'background',
@@ -105,4 +118,54 @@ const validFormats = [
   'break'
 ]
 
-const bindings = {}
+/* ------------ Keyboard Shortcuts ------------ */
+
+const bindings = {
+  left: {
+    key: 'L',
+    shortKey: true,
+    handler: function () {
+      this.quill.format('align', '')
+    }
+  },
+  center: {
+    key: 'E',
+    shortKey: true,
+    handler: function (range) {
+      let alignment = this.quill.getFormat(range).align
+      this.quill.format('align', alignment == 'center' ? '' : 'center')
+    }
+  }
+}
+
+/* ---------- Clipboard Match Filters --------- */
+
+export function headingMatcher(node, delta) {
+  let tag = node.tagName
+  return tag.startsWith('H')
+    ? // H1|H2|H5|H6 become H3|H4
+      delta.compose(
+        new Delta().retain(delta.length(), {
+          header: ['H4', 'H5', 'H6'].includes(tag) ? '2' : '1'
+          // bold: false,
+        })
+      )
+    : delta
+}
+
+export function quoteMatcher(node, delta) {
+  let classes = node.getAttribute('class')
+  return classes && classes.includes('uote')
+    ? // Set tag as blockquote
+      delta.compose(
+        new Delta().retain(delta.length(), {
+          blockquote: true
+        })
+      )
+    : delta
+}
+
+const matchers = [
+  [Node.ELEMENT_NODE, headingMatcher],
+  [Node.ELEMENT_NODE, quoteMatcher]
+]

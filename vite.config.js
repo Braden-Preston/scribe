@@ -20,7 +20,7 @@ export default defineConfig({
     // Open a bundle visualizer
     process.argv.includes('--analyze') &&
       visualizer({
-        filename: 'node_modules/.vite/report.html',
+        filename: '.yarn/cache/.vite/report.html',
         brotliSize: true,
         open: true
       })
