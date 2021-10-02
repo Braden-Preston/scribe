@@ -45,7 +45,7 @@ const App = () => html`
       <!-- Footer -->
       <div class="mb-6 mt-3 text-center select-none">
         <span class="text-gray-200">Designed for </span>
-        <a href="https://www.thepathoftruth.com/" target="_blank" class="text-blue-400">ThePathofTruth 🌲</span>
+        <a href="https://www.thepathoftruth.com/" rel="noopener" target="_blank" class="text-blue-400">ThePathofTruth 🌲</span>
       </div>
 
       <${Dynamic} />

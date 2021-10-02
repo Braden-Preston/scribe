@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
-    "analyze": "vite build -- --analyze",
+    "analyze": "vite build --mode=analyze",
     "preview": "yarn build && yarn start -- --open",
     "clean": "rimraf build && yarn cache clean"
   },

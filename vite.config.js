@@ -3,59 +3,73 @@ import compression from 'vite-plugin-compression'
 import visualizer from 'rollup-plugin-visualizer'
 import path from 'path'
 
-export default defineConfig({
-  root: 'src',
-  cacheDir: '../.yarn/cache/.vite',
-  plugins: [
-    // Compress assets
-    compression({
-      ext: 'br',
-      algorithm: 'brotliCompress',
-      threshold: 256,
-      verbose: false,
-      filter: file => {
-        return /\.json/.exec(file) ? false : true
-      }
-    }),
-    // Open a bundle visualizer
-    process.argv.includes('--analyze') &&
-      visualizer({
-        filename: '.yarn/cache/.vite/report.html',
-        brotliSize: true,
-        open: true
-      })
-  ],
-  server: {
-    open: process.argv.includes('--open')
-  },
-  resolve: {
-    alias: []
-  },
-  build: {
-    outDir: '../build',
-    manifest: true,
-    emptyOutDir: true,
-    cssCodeSplit: false,
-    rollupOptions: {
-      input: {
-        app: path.resolve(__dirname, './src/index.html')
-      },
-      output: {
-        // Custom output naming
-        chunkFileNames: 'scripts/[name].js',
-        entryFileNames: 'scripts/[name].js',
-        assetFileNames: ({ name }) =>
-          name.endsWith('.css') ? 'styles/[name].[ext]' : 'assets/[name].[ext]',
+export default defineConfig(({ command, mode }) => {
+  console.log(mode, command)
 
-        // Assign modules to chunk names
-        manualChunks: id => {
-          return /(quill|highlight)/.exec(id)
-            ? 'lazy'
-            : /(node_modules)/.exec(id)
-            ? 'core'
-            : 'app'
+  const config = {
+    root: 'src',
+    cacheDir: '../.yarn/cache/.vite',
+    plugins: [
+      // Compress assets
+      // compression({
+      //   ext: 'br',
+      //   algorithm: 'brotliCompress',
+      //   threshold: 256,
+      //   verbose: false,
+      //   filter: file => {
+      //     return /\.json/.exec(file) ? false : true
+      //   }
+      // })
+    ],
+    server: {
+      open: process.argv.includes('--open')
+    },
+    resolve: {
+      alias: []
+    },
+    build: {
+      outDir: '../build',
+      manifest: true,
+      emptyOutDir: true,
+      // cssCodeSplit: false,
+      // minify: false,
+      rollupOptions: {
+        input: {
+          app: path.resolve(__dirname, './src/index.html')
+        },
+        external: ['quill-convert'],
+        output: {
+          // Assign modules to chunk names
+          manualChunks: id => 'app',
+          // Custom output naming
+          // chunkFileNames:  'asse/[name].js',
+          // entryFileNames:  (chunkInfo) => {
+          //   console.log(chunkInfo)
+          //   return 'cats/[name]-[hash].js'
+          // },
+          // chunkFileNames: ({ name }) =>
+          // name.endsWith('.br') ? 'assets/[name].[ext]' : '[name].js',
+          // entryFileNames: (chunkInfo) => {
+          //   console.log(chunkInfo)
+          //   return 'assets/[name].[ext]'
+          //   // return  name.endsWith('.br') ? 'assets/[name].[ext]' : '[name].js'
+          // },
+          // assetFileNames: 'assets/[name].[ext]'
         }
       }
     }
   }
+  // Open a bundle visualizer
+  if (mode === 'analyze') {
+    config.plugins?.push(
+      visualizer({
+        title: 'Vite Bundle Report',
+        filename: '.yarn/cache/.vite/report.html',
+        brotliSize: true,
+        open: true
+      })
+    )
+  }
+
+  return config
 })
